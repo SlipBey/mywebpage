@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://design.slipyme.xyz
+
+# Sitemaps
+Sitemap: https://design.slipyme.xyz/sitemap.xml
