@@ -4,6 +4,9 @@ import xir from "@assets/projects/xir.svg";
 import rozbar from "@assets/projects/rozbar.svg";
 import slipyme from "@assets/projects/slipyme.svg";
 import enderrise from "@assets/projects/enderrise.svg";
+import blog from "@assets/icon.svg";
+import code from "@assets/projects/slipymecode.svg";
+import design from "@assets/projects/design.svg";
 
 export const PROJECTS = [
 	{
@@ -13,19 +16,19 @@ export const PROJECTS = [
 		link: "https://www.slipyme.xyz",
 	},
 	{
-		icon: slipyme,
+		icon: blog,
 		text: "Blog Sayfam",
 		alt: "Güncel teknoloji haberleri, yazılımsal bilgiler, fizik ve psikoloji bilimi ile ilgili makaleler gibi bir çok şey paylaşılan kişisel bir blog.",
 		link: "https://blog.slipyme.xyz",
 	},
 	{
-		icon: slipyme,
+		icon: code,
 		text: "Slipyme Code",
 		alt: "Yazılımcılar için kod paylaşımlarının yapıldığı ve yardım edildiği bir platform",
 		link: "https://code.slipyme.xyz",
 	},
 	{
-		icon: slipyme,
+		icon: design,
 		text: "Slipyme Design",
 		alt: "Tasarım ihtiyacı olanlar için, Slipyme bünyesine kurduğumuz tasarımcı platformu.",
 		link: "https://design.slipyme.xyz",

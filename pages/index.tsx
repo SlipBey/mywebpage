@@ -9,8 +9,8 @@ import slipbey from "@assets/icon.svg";
 
 const HomePage: NextPage = () => {
 	return (
-		<Layout title="Anasayfa">
-			<section className="p-5">
+		<Layout title="Homepage">
+			<section className="p-5 mx-auto">
 				<div className="bg-gray-800 rounded-md m-h-96">
 					<div className="text-center p-8">
 						<CustomImage
@@ -24,7 +24,7 @@ const HomePage: NextPage = () => {
 						<h5 className="mt-1 font-semibold text-xl text-gray-300">
 							Full-Stack Developer
 						</h5>
-						<p className="mt-2 font-base text-medium text-gray-200 w-96 mx-auto">
+						<p className="mt-2 font-base text-medium text-gray-200 w-auto mx-auto">
 							Merhaba, ben Berkant. Yaklaşık 4 senedir yazılımla
 							ilgileniyorum. Kendimi frontend(arayüz) kısmında
 							epeyce geliştirdim ve artık güzel projeler üretme
@@ -42,59 +42,69 @@ const HomePage: NextPage = () => {
 							))}
 						</div>
 
-						<div className="mt-5 grid grid-rows-1 md:grid-rows-5 grid-flow-col gap-5 flex justify-center">
-							{CONFIG.STACKS.map((stack, index) => (
-								<Tippy content={stack.alt} key={index}>
-									<div className="bg-gray-700 p-2 w-16 h-16 rounded-md">
+						<div className="flex flex-col justify-center mt-5 mb-5">
+							<div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 px-4">
+								{CONFIG.STACKS.map((stack, index) => (
+									<div
+										className="p-4 rounded-lg flex justify-around items-center bg-gray-700 hover:bg-gray-600 duration-100 group"
+										key={index}
+									>
+										<h3 className="hidden group-hover:block text-white sm:text-normal md:text-xl font-bold">
+											{stack.alt}
+										</h3>
 										<CustomImage
 											src={stack.icon}
 											alt="Stack Image"
-											className="w-12 h-12"
+											className="w-12 h-12 group-hover:hidden"
 										/>
 									</div>
-								</Tippy>
-							))}
+								))}
+							</div>
 						</div>
 
 						<h1 className="mt-8 mb-2 text-gray-300 font-semibold text-4xl">
 							PROJECTS
 						</h1>
 
-						<div className="grid grid-rows-5 md:grid-rows-2 grid-flow-col gap-5 mt-5 flex justify-center">
-							{CONFIG.PROJECTS.map((project, index) => (
-								<Link href={project.link} key={index}>
-									<Tippy content={project.alt}>
-										<div className="bg-gray-700 p-2 w-36 h-36 rounded-md flex flex-col justify-center">
-											<h2 className="text-white mb-3">
-												{project.text}
-											</h2>
-											<CustomImage
-												src={project.icon}
-												alt="Stack Image"
-												className="w-16 h-16 mx-auto"
-											/>
-										</div>
-									</Tippy>
-								</Link>
-							))}
+						<div className="flex flex-col justify-center mt-5 mb-5">
+							<div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-3 px-4 mx-auto">
+								{CONFIG.PROJECTS.map((project, index) => (
+									<Link href={project.link} key={index}>
+										<Tippy content={project.alt}>
+											<div className="bg-gray-700 hover:bg-gray-600 duration-100 p-2 w-36 h-36 rounded-md flex flex-col justify-center group">
+												<h2 className="text-white mb-3">
+													{project.text}
+												</h2>
+												<CustomImage
+													src={project.icon}
+													alt="Stack Image"
+													className="w-16 h-16 mx-auto group-hover:scale-105 duration-200"
+												/>
+											</div>
+										</Tippy>
+									</Link>
+								))}
+							</div>
 						</div>
 
 						<h1 className="mt-8 mb-2 text-gray-300 font-semibold text-4xl">
 							PAGES
 						</h1>
 
-						<div className="grid grid-rows-2 grid-flow-col gap-5 mt-5 flex justify-center">
-							{CONFIG.PAGES.map((page, index) => (
-								<Link href={page.link} key={index}>
-									<Tippy content={page.alt}>
-										<div className="bg-gray-700 p-2 w-24 h-20 rounded-md flex flex-col justify-center">
-											<h2 className="text-white">
-												{page.text}
-											</h2>
-										</div>
-									</Tippy>
-								</Link>
-							))}
+						<div className="flex flex-col justify-center mt-5 mb-5">
+							<div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 px-4 mx-auto">
+								{CONFIG.PAGES.map((page, index) => (
+									<Link href={page.link} key={index}>
+										<Tippy content={page.alt}>
+											<div className="bg-gray-700 hover:bg-gray-600 duration-100 p-2 w-24 h-20 rounded-md flex flex-col justify-center">
+												<h2 className="text-white">
+													{page.text}
+												</h2>
+											</div>
+										</Tippy>
+									</Link>
+								))}
+							</div>
 						</div>
 					</div>
 				</div>

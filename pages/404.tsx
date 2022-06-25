@@ -32,7 +32,10 @@ const NotFoundPage: NextPage = () => {
 
 				<div className="mt-8 grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-2">
 					{Pages.map((page, index) => (
-						<div className="bg-gray-800 border border-1 border-gray-700 rounded-md p-5 hover:bg-gray-700" key={index}>
+						<div
+							className="bg-gray-800 border border-1 border-gray-700 rounded-md p-5 hover:bg-gray-700"
+							key={index}
+						>
 							<Link href={page.link}>
 								<div
 									className={`${page.color} rounded-md justify-center items-center w-12 h-12 mb-5 mx-auto flex`}

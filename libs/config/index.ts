@@ -31,10 +31,9 @@ const SEO = {
 		"sass",
 		"scss",
 		"portfolyo",
-		"portfolio"
+		"portfolio",
 	],
-	description:
-		"Welcome to SlipBey portfolio",
+	description: "Welcome to SlipBey portfolio",
 };
 
 export const CONFIG = {
