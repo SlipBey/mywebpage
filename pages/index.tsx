@@ -42,7 +42,7 @@ const HomePage: NextPage = () => {
 							))}
 						</div>
 
-						<div className="mt-5 grid grid-rows-5 grid-flow-col gap-5 flex justify-center">
+						<div className="mt-5 grid grid-rows-8 md:grid-rows-5 grid-flow-col gap-5 flex justify-center">
 							{CONFIG.STACKS.map((stack, index) => (
 								<Tippy content={stack.alt} key={index}>
 									<div className="bg-gray-700 p-2 w-16 h-16 rounded-md">
@@ -60,7 +60,7 @@ const HomePage: NextPage = () => {
 							PROJECTS
 						</h1>
 
-						<div className="grid grid-rows-2 grid-flow-col gap-5 mt-5 flex justify-center">
+						<div className="grid grid-rows-5 md:grid-rows-2 grid-flow-col gap-5 mt-5 flex justify-center">
 							{CONFIG.PROJECTS.map((project, index) => (
 								<Link href={project.link} key={index}>
 									<Tippy content={project.alt}>
