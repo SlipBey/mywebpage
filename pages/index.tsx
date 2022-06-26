@@ -4,6 +4,7 @@ import { CustomImage } from "@components/Utils/CustomImage";
 import { Link } from "@components/Utils/Link";
 import { CONFIG } from "@libs/config";
 import Tippy from "@tippyjs/react";
+import { Status } from "@components/Status";
 
 import slipbey from "@assets/icon.svg";
 
@@ -25,11 +26,14 @@ const HomePage: NextPage = () => {
 							Full-Stack Developer
 						</h5>
 						<p className="mt-2 font-base text-medium text-gray-200 w-auto mx-auto">
-							Merhaba, ben Berkant. Yaklaşık 4 senedir yazılımla
-							ilgileniyorum. Kendimi frontend(arayüz) kısmında
-							epeyce geliştirdim ve artık güzel projeler üretme
-							aşamasındayım. Lisedeyim ve Mekatronik bölümünü
-							okuyorum.
+							Merhabalar, ben Berkant. Şuan lisedeyim ve
+							Mekatronik bölümünü okuyorum. 4 Senedir yazılım
+							üzerine uğraşıyorum. Kendimi neredeyse hep
+							Frontend(arayüz) kısmında geliştirdim. Web tasarım,
+							mobil uygulama tasarımı, masaüstü programlama,
+							robotik kodlama gibi alanlarla ilgileniyorum.
+							NextJS, TypeScript, TailwindCSS, C# ve Arduino en
+							çok ilgilendiğim programlamalardır.
 						</p>
 
 						<div className="flex flex-wrap justify-center mt-5 space-x-5">
@@ -40,6 +44,10 @@ const HomePage: NextPage = () => {
 									/>
 								</Link>
 							))}
+						</div>
+
+						<div className="flex justify-center mt-5 mb-5">
+							<Status />
 						</div>
 
 						<div className="flex flex-col justify-center mt-5 mb-5">
