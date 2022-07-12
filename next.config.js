@@ -5,7 +5,7 @@ const withImages = require("next-images");
 module.exports = withPlugins([withImages], {
 	reactStrictMode: true,
 	poweredByHeader: false,
-	trailingSlash: true,
+	trailingSlash: false,
 	async redirects() {
 		return [
 			{
