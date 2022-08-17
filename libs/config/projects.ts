@@ -13,25 +13,25 @@ export const PROJECTS = [
 		icon: slipyme,
 		text: "Slipyme",
 		alt: "Bir çok alana hizmet vermek amacıyla kurduğum bir platform.",
-		link: "https://www.slipyme.xyz",
+		link: "https://www.slipyme.com",
 	},
 	{
 		icon: blog,
 		text: "Blog Sayfam",
 		alt: "Güncel teknoloji haberleri, yazılımsal bilgiler, fizik ve psikoloji bilimi ile ilgili makaleler gibi bir çok şey paylaşılan kişisel bir blog.",
-		link: "https://blog.slipyme.xyz",
+		link: "https://blog.slipyme.com",
 	},
 	{
 		icon: code,
 		text: "Slipyme Code",
 		alt: "Yazılımcılar için kod paylaşımlarının yapıldığı ve yardım edildiği bir platform",
-		link: "https://code.slipyme.xyz",
+		link: "https://code.slipyme.com",
 	},
 	{
 		icon: design,
 		text: "Slipyme Design",
 		alt: "Tasarım ihtiyacı olanlar için, Slipyme bünyesine kurduğumuz tasarımcı platformu.",
-		link: "https://design.slipyme.xyz",
+		link: "https://design.slipyme.com",
 	},
 	{
 		icon: enderrise,
@@ -61,7 +61,7 @@ export const PROJECTS = [
 		icon: angelbot,
 		text: "AngelBot",
 		alt: "İlk discord botum (Kapattım.)",
-		link: "https://angelbotweb.glitch.me",
+		link: "https://enderbot.net",
 	},
 	{
 		icon: xir,
