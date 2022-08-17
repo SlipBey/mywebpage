@@ -40,7 +40,7 @@ export const CONTACT = [
 		icon: FaSpotify,
 	},
 	{
-		href: "mailto:gunaydinberkant13@gmail.com",
+		href: "mailto:berkant@slipyme.com",
 		icon: FiMail,
 	},
 ];
