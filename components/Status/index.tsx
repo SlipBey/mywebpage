@@ -117,7 +117,32 @@ export const Status: FC = () => {
 								Kod Yazıyor
 							</p>
 							<p className="text-white text-base font-bold text-left">
-								Visual Studio Kode
+								Visual Studio Code
+							</p>
+							<p className="text-gray-300 text-sm text-left truncate">
+								{filtered.details}
+							</p>
+							<p className="text-gray-300 text-sm text-left truncate">
+								{filtered.state}
+							</p>
+						</div>
+					</div>
+				);
+		        case "Visual Studio Code":
+				return (
+					<div className="flex flex-row text-normal mt-2 ml-5 pb-2">
+						<div className="mr-5">
+							<img
+								src={`https://cdn.discordapp.com/app-assets/${filtered.application_id}/${filtered.assets.large_image}`}
+								className="w-24 rounded-lg border border-gray-800"
+							/>
+						</div>
+						<div className="text-gray-800 mt-0 ml-2 w-64">
+							<p className="text-blue-500 text-base font-bold text-left mb-2">
+								Kod Yazıyor
+							</p>
+							<p className="text-white text-base font-bold text-left">
+								Visual Studio Code
 							</p>
 							<p className="text-gray-300 text-sm text-left truncate">
 								{filtered.details}
