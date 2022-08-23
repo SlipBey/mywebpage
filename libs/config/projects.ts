@@ -1,7 +1,5 @@
 import marpel from "@assets/projects/marpel.svg";
-import angelbot from "@assets/projects/angelbot.svg";
 import xir from "@assets/projects/xir.svg";
-import rozbar from "@assets/projects/rozbar.svg";
 import slipyme from "@assets/projects/slipyme.svg";
 import enderrise from "@assets/projects/enderrise.svg";
 import blog from "@assets/icon.svg";
@@ -50,18 +48,6 @@ export const PROJECTS = [
 		text: "Marpel Bot",
 		alt: "Mapel isimli çok amaçlı Discord botunun webmasteriyim.",
 		link: "https://marpel.net",
-	},
-	{
-		icon: rozbar,
-		text: "Rozbar Bot",
-		alt: "Çok amaçlı moderasyon botum. (Artık EnderBot adı altında)",
-		link: "https://enderbot.net",
-	},
-	{
-		icon: angelbot,
-		text: "AngelBot",
-		alt: "İlk discord botum (Kapattım.)",
-		link: "https://enderbot.net",
 	},
 	{
 		icon: xir,

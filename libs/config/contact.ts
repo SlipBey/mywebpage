@@ -7,36 +7,33 @@ import {
 } from "react-icons/fi";
 import { FaDiscord, FaSpotify, FaNpm } from "react-icons/fa";
 
-export const DISCORD_ID = "407564231580581888";
-export const MAIL = "slip@slipyme.com";
-
 export const CONTACT = [
 	{
-		href: "/discord",
+		href: "https://discord.gg/vvTZtRCK3X",
 		icon: FaDiscord,
 	},
 	{
-		href: "/github",
+		href: "https://github.com/SlipBey",
 		icon: FiGithub,
 	},
 	{
-		href: "/linkedin",
+		href: "https://www.linkedin.com/in/slipbey/",
 		icon: FiLinkedin,
 	},
 	{
-		href: "/youtube",
+		href: "https://www.youtube.com/AngelCraftNW",
 		icon: FiYoutube,
 	},
 	{
-		href: "/instagram",
+		href: "https://www.instagram.com/SlipBey",
 		icon: FiInstagram,
 	},
 	{
-		href: "/npm",
+		href: "https://www.npmjs.com/~mynameisslik",
 		icon: FaNpm,
 	},
 	{
-		href: "/spotify",
+		href: "spotify:user/g8l0pnh50bxsyb932y052ma4h",
 		icon: FaSpotify,
 	},
 	{

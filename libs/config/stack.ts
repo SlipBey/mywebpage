@@ -25,8 +25,9 @@ import arduino from "@assets/libraries/arduino.svg";
 import webpack from "@assets/libraries/webpack.svg";
 import parcel from "@assets/libraries/parcel.svg";
 import nuxtjs from "@assets/libraries/nuxtjs.svg";
-import cplus from "@assets/libraries/cplus.svg";
 import graphql from "@assets/libraries/graphql.svg";
+import supabase from "@assets/libraries/supabase.svg";
+import mysql from "@assets/libraries/mysql.svg";
 
 export const STACKS = [
 	{
@@ -38,20 +39,16 @@ export const STACKS = [
 		alt: "CSS",
 	},
 	{
-		icon: bootstrap,
-		alt: "BootstrapCSS",
+		icon: scss,
+		alt: "SCSS (SASS)",
 	},
 	{
 		icon: tailwind,
 		alt: "TailwindCSS",
 	},
 	{
-		icon: scss,
-		alt: "SCSS (SASS)",
-	},
-	{
-		icon: php,
-		alt: "PHP",
+		icon: bootstrap,
+		alt: "BootstrapCSS",
 	},
 	{
 		icon: javas,
@@ -102,6 +99,10 @@ export const STACKS = [
 		alt: "Arduino",
 	},
 	{
+		icon: supabase,
+		alt: "Supabase",
+	},
+	{
 		icon: graphql,
 		alt: "Graphql",
 	},
@@ -114,8 +115,8 @@ export const STACKS = [
 		alt: "SQLite",
 	},
 	{
-		icon: cplus,
-		alt: "C++",
+		icon: mysql,
+		alt: "MySQL",
 	},
 	{
 		icon: csharp,
@@ -144,5 +145,9 @@ export const STACKS = [
 	{
 		icon: java,
 		alt: "Java",
+	},
+	{
+		icon: php,
+		alt: "PHP",
 	},
 ];
