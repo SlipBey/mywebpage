@@ -3,6 +3,9 @@ const { withPlugins } = require("next-compose-plugins");
 const withImages = require("next-images");
 
 module.exports = withPlugins([withImages], {
+	images: {
+		domains: ["i.scdn.co", "cdn.discordapp.com"],
+	},
 	reactStrictMode: true,
 	poweredByHeader: false,
 	trailingSlash: false,
@@ -40,8 +43,7 @@ module.exports = withPlugins([withImages], {
 			},
 			{
 				source: "/spotify",
-				destination:
-					"https://open.spotify.com/user/g8l0pnh50bxsyb932y052ma4h",
+				destination: "spotify:user/g8l0pnh50bxsyb932y052ma4h",
 				permanent: true,
 			},
 		];
