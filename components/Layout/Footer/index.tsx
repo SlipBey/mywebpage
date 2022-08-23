@@ -33,7 +33,7 @@ export const Footer: FC = () => {
 			. <FiHeart className="text-red-500 inline" />{" "}
 			<Link
 				underline
-				href="https://www.slipyme.xyz"
+				href="https://www.slipyme.com"
 				className="text-blue-600"
 			>
 				Slipyme
