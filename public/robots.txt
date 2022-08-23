@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://design.slipyme.xyz
+Host: https://slip.slipyme.com
 
 # Sitemaps
-Sitemap: https://design.slipyme.xyz/sitemap.xml
+Sitemap: https://slip.slipyme.com/sitemap.xml
