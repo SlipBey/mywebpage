@@ -7,6 +7,7 @@ import Tippy from "@tippyjs/react";
 import { Status } from "@components/Status";
 
 import slipbey from "@assets/icon.svg";
+import { SpotifyStatus } from "@components/Status/spotify";
 
 const HomePage: NextPage = () => {
 	return (
@@ -23,7 +24,8 @@ const HomePage: NextPage = () => {
 							SlipBey
 						</h1>
 						<h5 className="mt-1 font-semibold text-xl text-gray-300">
-							Full-Stack Developer
+							<span className="text-blue-600">Full-Stack</span>{" "}
+							Developer
 						</h5>
 						<p className="mt-2 font-base text-medium text-gray-200 w-auto mx-auto">
 							Merhabalar, ben Berkant. Şuan lisedeyim ve
@@ -36,9 +38,13 @@ const HomePage: NextPage = () => {
 							çok ilgilendiğim programlamalardır.
 						</p>
 
-						<div className="flex flex-wrap justify-center mt-5 space-x-5">
+						<div className="flex flex-wrap justify-center mt-5">
 							{CONFIG.CONTACT.map((contact, index) => (
-								<Link href={contact.href} key={index}>
+								<Link
+									href={contact.href}
+									key={index}
+									className="m-1 sm:m-2"
+								>
 									<contact.icon
 										className={`text-2xl w-8 h-8 text-gray-500 hover:text-gray-300`}
 									/>
@@ -46,20 +52,21 @@ const HomePage: NextPage = () => {
 							))}
 						</div>
 
-						<div className="flex justify-center mt-5 mb-5">
+						<div className="flex flex-col items-center my-5 space-y-5">
 							<Status />
+							<SpotifyStatus />
 						</div>
 
-						<div className="flex flex-col justify-center mt-5 mb-5">
+						<div className="flex flex-col justify-center mx-auto my-5">
 							<div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 px-4">
 								{CONFIG.STACKS.map((stack, index) => (
 									<div
 										className="p-4 rounded-lg flex justify-around items-center bg-gray-700 hover:bg-gray-600 duration-100 group"
 										key={index}
 									>
-										<h3 className="hidden group-hover:block text-white sm:text-normal md:text-xl font-bold">
+										<h1 className="hidden group-hover:block text-xl font-bold text-white">
 											{stack.alt}
-										</h3>
+										</h1>
 										<CustomImage
 											src={stack.icon}
 											alt="Stack Image"
@@ -70,12 +77,12 @@ const HomePage: NextPage = () => {
 							</div>
 						</div>
 
-						<h1 className="mt-8 mb-2 text-gray-300 font-semibold text-4xl">
-							PROJECTS
+						<h1 className="mt-8 mb-2 text-gray-300 sm:font-semibold sm:text-4xl text-2xl font-lg uppercase">
+							My Active Projects
 						</h1>
 
-						<div className="flex flex-col justify-center mt-5 mb-5">
-							<div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-3 px-4 mx-auto">
+						<div className="flex flex-col justify-center my-5">
+							<div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-3 justify-items-center px-4 mx-auto">
 								{CONFIG.PROJECTS.map((project, index) => (
 									<Link href={project.link} key={index}>
 										<Tippy content={project.alt}>
@@ -93,16 +100,27 @@ const HomePage: NextPage = () => {
 									</Link>
 								))}
 							</div>
+							<div className="mt-5">
+								<Link href="/resume">
+									<button className="text-white bg-gray-700 w-24 sm:w-64 h-12 font-semibold border-2 border-gray-900 hover:bg-gray-900 duration-200">
+										My Resume
+									</button>
+								</Link>
+							</div>
 						</div>
 
-						<h1 className="mt-8 mb-2 text-gray-300 font-semibold text-4xl">
-							PAGES
+						<h1 className="mt-8 mb-2 text-gray-300 sm:font-semibold sm:text-4xl text-2xl font-lg uppercase">
+							My Little Projects
 						</h1>
 
-						<div className="flex flex-col justify-center mt-5 mb-5">
-							<div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 px-4 mx-auto">
+						<div className="flex flex-col justify-center my-5">
+							<div className="flex flex-wrap justify-center">
 								{CONFIG.PAGES.map((page, index) => (
-									<Link href={page.link} key={index}>
+									<Link
+										href={page.link}
+										key={index}
+										className="m-2"
+									>
 										<Tippy content={page.alt}>
 											<div className="bg-gray-700 hover:bg-gray-600 duration-100 p-2 w-24 h-20 rounded-md flex flex-col justify-center">
 												<h2 className="text-white">

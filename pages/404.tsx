@@ -3,6 +3,8 @@ import { Layout } from "@components/Layout";
 import { Link } from "@components/Utils/Link";
 
 import { FaHome, FaCode } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
+import { DiPhotoshop } from "react-icons/di";
 
 const NotFoundPage: NextPage = () => {
 	const Pages = [
@@ -13,10 +15,22 @@ const NotFoundPage: NextPage = () => {
 			link: "/",
 		},
 		{
+			icon: FiEdit,
+			color: "bg-pink-100 text-pink-600",
+			name: "My Resume",
+			link: "/resume",
+		},
+		{
 			icon: FaCode,
 			color: "bg-cyan-100 text-cyan-600",
 			name: "Slipyme",
-			link: "https://www.slipyme.xyz",
+			link: "https://www.slipyme.com",
+		},
+		{
+			icon: DiPhotoshop,
+			color: "bg-green-100 text-green-600",
+			name: "Slipyme Design",
+			link: "https://design.slipyme.com",
 		},
 	];
 
@@ -30,7 +44,7 @@ const NotFoundPage: NextPage = () => {
 					Whoops! That page doesn&apos;t exit.
 				</h2>
 
-				<div className="mt-8 grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-2">
+				<div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
 					{Pages.map((page, index) => (
 						<div
 							className="bg-gray-800 border border-1 border-gray-700 rounded-md p-5 hover:bg-gray-700"
