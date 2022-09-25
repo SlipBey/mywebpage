@@ -1,8 +1,8 @@
-# My designers webpage
+# My Personal Page
 
 Using [TypeScript](https://www.typescriptlang.org/), [NextJS](https://nextjs.org/) and [TailwindCSS](https://tailwindcss.com/)
 
-Demo: https://designer.slipyme.xyz
+Demo: https://slip.slipyme.com
 
 # Setup:
 
