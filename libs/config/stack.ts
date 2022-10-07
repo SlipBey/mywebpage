@@ -28,6 +28,7 @@ import nuxtjs from "@assets/libraries/nuxtjs.svg";
 import graphql from "@assets/libraries/graphql.svg";
 import supabase from "@assets/libraries/supabase.svg";
 import mysql from "@assets/libraries/mysql.svg";
+import nestjs from "@assets/libraries/nestjs.svg";
 
 export const STACKS = [
 	{
@@ -77,6 +78,10 @@ export const STACKS = [
 	{
 		icon: nuxtjs,
 		alt: "NuxtJS",
+	},
+	{
+		icon: nestjs,
+		alt: "NestJS",
 	},
 	{
 		icon: express,
