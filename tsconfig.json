@@ -19,10 +19,11 @@
 			"@styles/*": ["styles/*"],
 			"@components/*": ["components/*"],
 			"@assets/*": ["assets/*"],
+			"@locales/*": ["locales/*"],
 			"@libs/*": ["libs/*"]
 		},
 		"incremental": true
 	},
 	"exclude": [".next", "node_modules"],
-	"include": ["./**/*.ts", "./**/*.tsx"]
+	"include": ["./**/*.ts", "./**/*.tsx", "pages/api/Youtube/statistics.js"]
 }
