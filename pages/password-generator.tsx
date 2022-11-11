@@ -8,7 +8,7 @@ import { IoMdCopy } from "react-icons/io";
 
 import { useLocaleParser } from "@libs/localeParser";
 
-const AccountsPage: NextPage = () => {
+const PasswordPage: NextPage = () => {
 	const [passLength, setPassLength] = useState<number | string>(18);
 	const [includeUppercase, setIncludeUppercase] = useState(true);
 	const [includeNumber, setIncludeNumber] = useState(true);
@@ -205,4 +205,4 @@ const AccountsPage: NextPage = () => {
 	);
 };
 
-export default AccountsPage;
+export default PasswordPage;

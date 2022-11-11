@@ -24,7 +24,7 @@ export default function HomePage({
 			<section className="p-5 mx-auto">
 				<div className="bg-gray-300 dark:bg-gray-800 rounded-md m-h-96">
 					<div className="text-center p-8">
-						<section id="about">
+						<section id="about" className="pb-12 md:pb-24 lg:pt-20">
 							<div className="flex lg:flex-row flex-col justify-between items-center">
 								<div className="w-full">
 									<CustomImage
@@ -69,6 +69,7 @@ export default function HomePage({
 													href={contact.href}
 													key={index}
 													legacyBehavior
+													title={contact.alt}
 												>
 													<a
 														className="m-1 sm:m-2"
@@ -108,12 +109,12 @@ export default function HomePage({
 							</div>
 						</section>
 
-						<div className="flex flex-col text-center justify-between pt-8 relative space-y-5 mt-8">
-							<h2 className="relative text-3xl w-full text-center font-bold">
+						<section className="flex flex-col text-center justify-between pb-12 md:pb-24 lg:pt-20">
+							<h2 className="text-3xl w-full text-center font-bold">
 								You<span className="text-red-600">Tube</span>
 							</h2>
 
-							<div className="grid sm:grid-cols-3 gap-3">
+							<div className="my-5 grid sm:grid-cols-3 gap-3">
 								<div className="flex flex-col">
 									<h5 className="text-xl font-semibold">
 										{parser.get("subscriberCount")}
@@ -180,15 +181,15 @@ export default function HomePage({
 									</Link>
 								</div>
 							</div>
-						</div>
+						</section>
 
-						<div className="flex flex-col text-center justify-between pt-8 relative space-y-5 mt-8">
-							<h2 className="relative text-3xl w-full text-center font-bold">
+						<section className="flex flex-col text-center justify-between pt-12 pb-12 md:pb-24 lg:pt-20">
+							<h2 className="text-3xl w-full text-center font-bold">
 								{parser.get("works")}
 							</h2>
 
-							<div className="grid grid-cols-1 gap-12 md:gap-5 md:grid-cols-3 items-start">
-								{CONFIG.WORKS.slice(0, 3).map(
+							<div className="my-5 grid grid-cols-1 gap-12 md:gap-5 md:grid-cols-3">
+								{CONFIG.WORKS.slice(0, 6).map(
 									(project, index) => (
 										<WorkCard
 											image={project.icon}
@@ -211,15 +212,15 @@ export default function HomePage({
 									</button>
 								</Link>
 							</div>
-						</div>
+						</section>
 
-						<div className="flex flex-col text-center justify-between pt-8 relative space-y-5 mt-8">
-							<h2 className="relative text-3xl w-full text-center font-bold">
+						<section className="flex flex-col text-center justify-between pb-12 md:pb-24 lg:pt-20">
+							<h2 className="text-3xl w-full text-center font-bold">
 								{parser.get("favorite_project_title")}
 							</h2>
 
-							<div className="grid grid-cols-1 gap-12 md:gap-5 md:grid-cols-3 items-start">
-								{CONFIG.PROJECTS.slice(0, 3).map(
+							<div className="my-5 grid grid-cols-1 gap-12 md:gap-5 md:grid-cols-3 items-start">
+								{CONFIG.PROJECTS.slice(0, 6).map(
 									(project, index) => (
 										<ProjectCard
 											image={project.icon}
@@ -243,7 +244,7 @@ export default function HomePage({
 									</button>
 								</Link>
 							</div>
-						</div>
+						</section>
 					</div>
 				</div>
 			</section>
