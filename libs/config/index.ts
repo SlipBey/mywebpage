@@ -34,6 +34,7 @@ const SEO = {
 		"portfolio",
 	],
 	description: "Welcome to SlipBey portfolio",
+	domain: "https://slip.slipyme.com",
 };
 
 export const CONFIG = {

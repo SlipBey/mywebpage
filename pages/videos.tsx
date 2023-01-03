@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { useLocaleParser } from "@libs/localeParser";
 import { VideoCard } from "@components/Videos/VideoCard";
-import { FiYoutube } from "react-icons/fi";
+import { FiEye, FiUsers, FiVideo, FiYoutube } from "react-icons/fi";
 import { useState } from "react";
 import classNames from "classnames";
 
@@ -27,9 +27,10 @@ export default function VideosPage({
 								{parser.get("statistics")}
 							</h2>
 
-							<div className="grid sm:grid-cols-3 gap-3">
+							<div className="my-5 grid sm:grid-cols-3 gap-3">
 								<div className="flex flex-col">
-									<h5 className="text-xl font-semibold">
+									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
+										<FiUsers className="text-black dark:text-white w-5 h-5" />{" "}
 										{parser.get("subscriberCount")}
 									</h5>
 									<p className="text-2xl font-semibold">
@@ -38,7 +39,8 @@ export default function VideosPage({
 								</div>
 
 								<div className="flex flex-col">
-									<h5 className="text-xl font-semibold">
+									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
+										<FiVideo className="text-black dark:text-white w-5 h-5" />{" "}
 										{parser.get("videoCount")}
 									</h5>
 									<p className="text-2xl font-semibold">
@@ -47,7 +49,8 @@ export default function VideosPage({
 								</div>
 
 								<div className="flex flex-col">
-									<h5 className="text-xl font-semibold">
+									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
+										<FiEye className="text-black dark:text-white w-5 h-5" />{" "}
 										{parser.get("viewCount")}
 									</h5>
 									<p className="text-2xl font-semibold">

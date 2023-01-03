@@ -6,11 +6,12 @@
 	"projects": "Projelerim",
 	"password": "Şifre Oluşturucu",
 	"notFound": "Sayfa Bulunamadı",
+	"contact": "İletişim",
 
 	"contents": "İçerik",
 	"creator": "Üretici",
 
-	"about_text": "Merhabalar, ben Berkant. Şuan lisedeyim ve Mekatronik bölümünü okuyorum. 4 Senedir yazılım üzerine uğraşıyorum. Kendimi özellikle Front-end alanında geliştiriyorum. Genellikle <b>Web Tabanlı Sistemler</b> üzerinde çalışıyorum.  Website, mobil uygulama, masaüstü programı, yapay zeka, algoritma yazılımları gibi çeşitli alanlarla uğraşıyorum.",
+	"about_text": "Merhabalar, ben Berkant. Şuan lisedeyim ve Mekatronik bölümünü okuyorum. Yaklaşık %{date} Senedir yazılım üzerine uğraşıyorum. Kendimi özellikle Front-end alanında geliştiriyorum. Genellikle <b>Web Tabanlı Sistemler</b> üzerinde çalışıyorum. Website, mobil uygulama, masaüstü programı, yapay zeka, algoritma yazılımları gibi çeşitli alanlarla uğraşıyorum.",
 	"notFound_text": "Aradığınız sayfaya şu anda ulaşılamıyor, sinyal sesinden sonra bir daha denemeyin.",
 
 	"stacks_title": "En çok kullandığım programlamalar",

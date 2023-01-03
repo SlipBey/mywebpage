@@ -5,7 +5,7 @@ import { FiHeart } from "react-icons/fi";
 export const Footer: FC = () => {
 	return (
 		<div className="pb-5 px-3 text-center text-black dark:text-white text-sm">
-			&copy; 2022 All rights reserved. Made with{" "}
+			&copy; {new Date().getFullYear()} All rights reserved. Made with{" "}
 			<FiHeart className="text-red-500 inline" /> by{" "}
 			<Link href="https://github.com/SlipBey" legacyBehavior>
 				<a className="text-blue-500" target="_blank">

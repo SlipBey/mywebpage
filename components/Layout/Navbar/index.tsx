@@ -1,5 +1,5 @@
-import { FC, useState } from "react";
-import Link from "next/link";
+import { FC, useEffect, useState } from "react";
+import { Link } from "@components/Utils/Link";
 import { FiMoon, FiSun, FiX } from "react-icons/fi";
 import { useTheme } from "next-themes";
 import classNames from "classnames";
@@ -18,6 +18,7 @@ import Favicon from "@assets/icon.svg";
 export const Navbar: FC = () => {
 	const { theme, setTheme } = useTheme();
 	const [hash, setHash] = useState(false);
+	const [top, setTop] = useState(false);
 	const router = useRouter();
 	const parser = useLocaleParser();
 
@@ -78,8 +79,23 @@ export const Navbar: FC = () => {
 		},
 	];
 
+	useEffect(() => {
+		window.onscroll = function () {
+			if (
+				document.body.scrollTop > 20 ||
+				document.documentElement.scrollTop > 20
+			)
+				setTop(true);
+			else setTop(false);
+		};
+	}, []);
+
 	return (
-		<header className="relative w-full z-10">
+		<header
+			className={classNames("top-0 w-full z-10 duration-500", {
+				"sticky bg-gray-100 dark:bg-gray-900": top,
+			})}
+		>
 			<nav className="py-4 px-8 flex items-center justify-between">
 				<div className="flex items-center space-x-6">
 					<div className="flex items-center">
@@ -98,7 +114,7 @@ export const Navbar: FC = () => {
 							className="hidden dark:block rounded-full"
 						/>
 						<h1 className="ml-3 text-xl text-black dark:text-white font-semibold">
-							<Link href="/" legacyBehavior>
+							<Link href="/">
 								<a>
 									<span className="text-blue-600">Slip</span>
 									Bey
@@ -110,7 +126,7 @@ export const Navbar: FC = () => {
 						<ul className="hidden md:flex items-center space-x-4">
 							{Pages.map((page, idx) => (
 								<li key={idx}>
-									<Link href={page.link} legacyBehavior>
+									<Link href={page.link}>
 										<a
 											className={classNames(
 												"border-b-2 border-transparent pb-3 transtion-all duration-200 font-medium",
@@ -118,7 +134,7 @@ export const Navbar: FC = () => {
 													"text-blue-600 border-blue-500":
 														page.link ==
 														router.asPath,
-													"text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white":
+													"text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white":
 														page.link !=
 														router.asPath,
 												},
@@ -139,7 +155,7 @@ export const Navbar: FC = () => {
 				>
 					<div
 						onClick={onClose}
-						className="fixed inset-0 bg-white opacity-25 dark:bg-gray-700"
+						className="fixed inset-0 bg-white opacity-25 dark:bg-gray-600"
 					/>
 					<nav className="fixed top-0 left-0 bottom-0 flex w-5/6 max-w-sm flex-col overflow-y-auto bg-gray-100 py-6 px-6 dark:bg-gray-900">
 						<div className="mb-8 flex items-center">
@@ -175,19 +191,28 @@ export const Navbar: FC = () => {
 						</div>
 					</nav>
 				</div>
-				<div className="flex items-center space-x-2 relative">
+				<div className="flex items-center gap-2">
+					<div>
+						<Link href="#">
+							<span className="hidden cursor-pointer rounded-xl bg-blue-600 py-2 px-6 text-sm font-bold text-white hover:bg-blue-700 lg:block">
+								{parser.get("contact")}
+							</span>
+						</Link>
+					</div>
 					<div className="md:hidden">
 						<button
+							aria-label="Open/Close Navbar"
 							onClick={onClose}
-							className="bg-gray-500 dark:bg-gray-700 text-white w-10 h-10 rounded-xl hover:opacity-80 transtion-all duration-300"
+							className="bg-gray-500 dark:bg-gray-600 text-white w-10 h-10 rounded-xl hover:opacity-80 transtion-all duration-300"
 						>
 							<FaHamburger className="text-bold h-full w-full p-2" />
 						</button>
 					</div>
 					<div>
 						<button
+							aria-label="Change Theme"
 							onClick={onTheme}
-							className="bg-gradient-to-tl from-blue-600 to-blue-500 text-white w-10 h-10 rounded-xl hover:opacity-80 transtion-all duration-300"
+							className="mr-2 hidden h-10 w-10 rounded-xl bg-blue-600 text-sm text-white hover:bg-blue-700 focus:outline-none lg:block"
 						>
 							{getIcon()}
 						</button>

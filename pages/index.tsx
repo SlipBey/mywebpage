@@ -1,6 +1,6 @@
 import { Layout } from "@components/Layout";
 import { CustomImage } from "@components/Utils/CustomImage";
-import Link from "next/link";
+import { Link } from "@components/Utils/Link";
 import { CONFIG } from "@libs/config";
 
 import icon from "@assets/icon.svg";
@@ -9,7 +9,7 @@ import { ProjectCard } from "@components/Projects/ProjectCard";
 import { useLocaleParser } from "@libs/localeParser";
 import { WorkCard } from "@components/Works/WorkCard";
 import { VideoCard } from "@components/Videos/VideoCard";
-import { FiYoutube } from "react-icons/fi";
+import { FiEye, FiUsers, FiVideo, FiYoutube } from "react-icons/fi";
 
 export default function HomePage({
 	videos,
@@ -58,7 +58,12 @@ export default function HomePage({
 									<div
 										className="mt-2 font-medium text-medium text-gray-900 dark:text-gray-200 w-auto mx-auto"
 										dangerouslySetInnerHTML={{
-											__html: parser.get("about_text"),
+											__html: parser.get("about_text", {
+												date: (
+													new Date().getFullYear() -
+													2016
+												).toString(),
+											}),
 										}}
 									/>
 
@@ -68,17 +73,10 @@ export default function HomePage({
 												<Link
 													href={contact.href}
 													key={index}
-													legacyBehavior
-													title={contact.alt}
 												>
-													<a
-														className="m-1 sm:m-2"
-														target="_blank"
-													>
-														<contact.icon
-															className={`text-2xl w-8 h-8 text-gray-600 dark:text-gray-500 hover:text-gray-800 dark:hover:text-gray-300`}
-														/>
-													</a>
+													<contact.icon
+														className={`m-1 sm:m-2 text-2xl w-8 h-8 text-gray-600 dark:text-gray-500 hover:text-gray-800 dark:hover:text-gray-300`}
+													/>
 												</Link>
 											),
 										)}
@@ -116,7 +114,8 @@ export default function HomePage({
 
 							<div className="my-5 grid sm:grid-cols-3 gap-3">
 								<div className="flex flex-col">
-									<h5 className="text-xl font-semibold">
+									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
+										<FiUsers className="text-black dark:text-white w-5 h-5" />{" "}
 										{parser.get("subscriberCount")}
 									</h5>
 									<p className="text-2xl font-semibold">
@@ -125,7 +124,8 @@ export default function HomePage({
 								</div>
 
 								<div className="flex flex-col">
-									<h5 className="text-xl font-semibold">
+									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
+										<FiVideo className="text-black dark:text-white w-5 h-5" />{" "}
 										{parser.get("videoCount")}
 									</h5>
 									<p className="text-2xl font-semibold">
@@ -134,7 +134,8 @@ export default function HomePage({
 								</div>
 
 								<div className="flex flex-col">
-									<h5 className="text-xl font-semibold">
+									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
+										<FiEye className="text-black dark:text-white w-5 h-5" />{" "}
 										{parser.get("viewCount")}
 									</h5>
 									<p className="text-2xl font-semibold">
@@ -158,7 +159,7 @@ export default function HomePage({
 
 							<div className="relative w-full">
 								<div>
-									<Link href="/youtube" legacyBehavior>
+									<Link href="/youtube">
 										<a target="_blank">
 											<button className="group flex items-center justify-center text-xl font-bold mx-auto">
 												<div className="bg-gray-400 dark:bg-gray-700 p-3 rounded-full group-hover:bg-red-500 dark:group-hover:bg-red-600 mr-5 duration-300">
