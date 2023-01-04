@@ -40,5 +40,9 @@
 	"strong": "Strong",
 	"very_strong": "Very Strong",
 
-	"more_text": "For More:"
+	"more_text": "For More:",
+
+	"contactMedia": "Job offers, Sponsorship, etc",
+	"contactApp": "Job application",
+	"contactPerson": "Personal"
 }

@@ -1,50 +1,35 @@
-import { Link } from "@components/Globals/Link";
-import { CONFIG } from "@libs/config";
 import type { FC } from "react";
+import Link from "next/link";
+import { FiHeart } from "react-icons/fi";
 
 export const Footer: FC = () => {
 	return (
-		<>
-			<footer className="my-6 mx-6 rounded-lg bg-gray-100 p-4 shadow dark:bg-gray-900 md:flex md:items-center md:justify-between md:p-6 xl:p-8">
-				<ul className="mb-6 flex flex-wrap items-center md:mb-0">
-					{CONFIG.PAGES.FOOTER.map((page, idx) => (
-						<li key={idx}>
-							<Link
-								underline
-								href={page.href}
-								className="mr-4 text-sm font-normal text-gray-600 dark:text-gray-400 md:mr-6"
-							>
-								{page.title}
-							</Link>
-						</li>
-					))}
-				</ul>
-				<p className="text-center text-sm text-gray-600 dark:text-gray-400">
-					&copy; {new Date().getFullYear()} Tüm Haklar Saklıdır. Bu
-					proje{" "}
-					<Link
-						href="https://slip.slipyme.com"
-						className="text-blue-500"
-					>
-						Berkant Günaydın
-					</Link>{" "}
-					ve{" "}
-					<Link
-						href="https://github.com/uinteger32"
-						className="text-orange-500"
-					>
-						Melih Kılıç
-					</Link>{" "}
-					tarafından{" "}
-					<Link
-						href="https://www.topkapisurokullari.com/"
-						className="text-green-500"
-					>
-						Topkapı Sur
-					</Link>{" "}
-					okulları için yapılmıştır. Sürüm: <b>(Beta-0.0.1)</b>
-				</p>
-			</footer>
-		</>
+		<div className="pb-5 px-3 text-center text-black dark:text-white text-sm">
+			&copy; {new Date().getFullYear()} All rights reserved. Made with{" "}
+			<FiHeart className="text-red-500 inline" /> by{" "}
+			<Link href="https://github.com/SlipBey" legacyBehavior>
+				<a className="text-blue-500" target="_blank">
+					SlipBey
+				</a>
+			</Link>{" "}
+			using{" "}
+			<Link href="https://nextjs.org/" legacyBehavior>
+				<a className="text-gray-500" target="_blank">
+					NextJS
+				</a>
+			</Link>{" "}
+			and{" "}
+			<Link href="https://tailwindcss.com/" legacyBehavior>
+				<a className="text-green-500" target="_blank">
+					TailwindCSS
+				</a>
+			</Link>
+			. <FiHeart className="text-red-500 inline" />{" "}
+			<Link href="https://www.slipyme.com" legacyBehavior>
+				<a className="text-blue-500" target="_blank">
+					Slipyme
+				</a>
+			</Link>{" "}
+		</div>
 	);
 };

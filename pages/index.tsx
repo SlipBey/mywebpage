@@ -1,184 +1,278 @@
-import type { NextPage } from "next";
-import { type Session, unstable_getServerSession } from "next-auth";
-import { options } from "./api/auth/[...nextauth]";
 import { Layout } from "@components/Layout";
-import { useSessionStore } from "@store/SessionStore";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import { supabase } from "@libs/supabase";
-import { Button } from "@components/Globals/Button";
-import { Link } from "@components/Globals/Link";
-import { CustomImage } from "@components/Globals/CustomImage";
+import { CustomImage } from "@components/Utils/CustomImage";
+import { Link } from "@components/Utils/Link";
+import { CONFIG } from "@libs/config";
 
-export interface IIndexPage {
-	session?: Session;
-	news?;
-}
+import icon from "@assets/icon.svg";
+import iconLight from "@assets/iconBeyaz.svg";
+import { ProjectCard } from "@components/Projects/ProjectCard";
+import { useLocaleParser } from "@libs/localeParser";
+import { WorkCard } from "@components/Works/WorkCard";
+import { VideoCard } from "@components/Videos/VideoCard";
+import { FiEye, FiUsers, FiVideo, FiYoutube } from "react-icons/fi";
 
-const IndexPage: NextPage<IIndexPage> = ({ session, news }) => {
-	const setSession = useSessionStore((state) => state.setSession);
-	setSession(session);
+export default function HomePage({
+	videos,
+	subscriberCount,
+	videoCount,
+	viewCount,
+}) {
+	const parser = useLocaleParser();
 
 	return (
-		<Layout title="Anasayfa">
-			<div className="my-6 mx-6 mt-5 rounded-lg bg-gray-100 p-4 shadow dark:bg-gray-100 dark:bg-gray-900">
-				<div className="mb-4 flex flex-col items-center justify-center text-center">
-					<div className="mx-auto max-w-screen-xl">
-						<Carousel
-							showArrows={true}
-							showThumbs={false}
-							autoPlay
-							interval={5000}
-							transitionTime={1000}
-							infiniteLoop
-						>
-							<div>
-								<CustomImage
-									src="https://cdn.discordapp.com/attachments/1002110836296396890/1050471335740055552/WhatsApp20Image202022-06-3020at2016.png"
-									alt=""
-								/>
-								<p className="legend">Haber 1</p>
-							</div>
-							<div>
-								<CustomImage
-									src="https://cdn.discordapp.com/attachments/1002110836296396890/1050471464224182333/meslekslide_1.png"
-									alt=""
-								/>
-								<p className="legend">Haber 2</p>
-							</div>
-						</Carousel>
-					</div>
+		<Layout title={parser.get("home")}>
+			<section className="p-5 mx-auto">
+				<div className="bg-gray-300 dark:bg-gray-800 rounded-md m-h-96">
+					<div className="text-center p-8">
+						<section id="about" className="pb-12 md:pb-24 lg:pt-20">
+							<div className="flex lg:flex-row flex-col justify-between items-center">
+								<div className="w-full">
+									<CustomImage
+										src={icon}
+										alt="Avatar Image"
+										className="w-24 h-24 mx-auto dark:hidden"
+									/>
+									<CustomImage
+										src={iconLight}
+										alt="Avatar Image"
+										className="w-24 h-24 mx-auto hidden dark:block"
+									/>
+									<h1 className="font-bold text-2xl text-black dark:text-white">
+										SlipBey
+									</h1>
+									<h5 className="mt-1 font-semibold text-xl flex justify-center space-x-1">
+										<div>
+											<span className="text-blue-600">
+												Full-Stack
+											</span>{" "}
+											Developer
+										</div>
+										<div> / </div>
+										<div>
+											<span className="text-red-600">
+												{parser.get("contents")}
+											</span>{" "}
+											{parser.get("creator")}
+										</div>
+									</h5>
+									<div
+										className="mt-2 font-medium text-medium text-gray-900 dark:text-gray-200 w-auto mx-auto"
+										dangerouslySetInnerHTML={{
+											__html: parser.get("about_text", {
+												date: (
+													new Date().getFullYear() -
+													2016
+												).toString(),
+											}),
+										}}
+									/>
 
-					<section
-						id="haberler"
-						className="mx-auto mt-5 w-full rounded-lg bg-gray-200 px-6 py-4 dark:bg-gray-800"
-					>
-						<h5 className="text-center text-lg font-bold uppercase text-black dark:text-white">
-							Haberler
-						</h5>
-						<div className="grid w-full grid-cols-1 justify-items-center gap-3 md:grid-cols-2 lg:grid-cols-3">
-							{news.map((n, idx) => (
-								<div
-									className="group flex w-full flex-col items-center justify-center rounded-lg bg-gray-300 px-4 py-6 dark:bg-gray-700"
-									key={idx}
-								>
-									<div>
-										<CustomImage
-											src={`https://dqupymeqnjgwzfgkrzwf.supabase.co/storage/v1/object/public/news/image/${n.image}`}
-											alt=""
-											className="rounded-lg duration-200 group-hover:scale-105"
-										/>
-									</div>
-									<div className="mt-5">
-										<h5 className="text-2xl font-semibold text-black dark:text-white">
-											{n.title}
-										</h5>
-										<p className="font-lg text-center text-lg text-gray-800 dark:text-gray-200">
-											{n.desc.slice(0, 50)}
-										</p>
-									</div>
-									<div className="mt-3">
-										<Button type="success">
-											<Link href={`/haberler/${n.id}`}>
-												Haberin Devamı
-											</Link>
-										</Button>
+									<div className="flex flex-wrap justify-center mt-5">
+										{CONFIG.CONTACT.map(
+											(contact, index) => (
+												<Link
+													href={contact.href}
+													key={index}
+												>
+													<contact.icon
+														className={`m-1 sm:m-2 text-2xl w-8 h-8 text-gray-600 dark:text-gray-500 hover:text-gray-800 dark:hover:text-gray-300`}
+													/>
+												</Link>
+											),
+										)}
 									</div>
 								</div>
-							))}
-						</div>
-					</section>
 
-					<section
-						id="hakkimizda"
-						className="mx-auto mt-5 w-full rounded-lg bg-gray-200 px-6 py-4 dark:bg-gray-800"
-					>
-						<h5 className="text-center text-lg font-bold uppercase text-black dark:text-white">
-							Sistem Hakkında
-						</h5>
-						<p className="text-md font-md mt-5 text-left text-gray-800 dark:text-gray-200">
-							Bu sistem okul idarecilerininin, fabrika
-							yetkililerinin ve öğrencilerin bilgileri ile
-							iletişim kurmasını kolaylaştıracak bir sistemdir.
-							Amacı öğrencilerin takibini yapabilmek, öğrencilerin
-							staj işlemlerini daha kolay bir şekilde
-							halledebilmek, mezun olduktan sonra bile öğrencinin
-							işi rahatça bulabilmesidir.
-							<br />
-							Firmalar isterlerse staj, isterlerse iş ilanı
-							oluşturabilirler. Böylelikle öğrenciler kendilerine
-							uygun ilanları seçip başvurabilir bu sayede öğrenci
-							işsiz kalmamış olur, firmada elinde çalıştıracak bir
-							eleman bulmuş olur.
-							<br />
-							Firmalar isterlerse öğrencilerle mesajlaşabilir bu
-							sayede haberleşme olayını sağlamış olurlar.
-							<br />
-							Staja giden öğrenciler hangi gün, hangi firmaya
-							gideceğini görebilirler.
-							<br />
-							Öğrenciler isterlerse kendilerine bir CV
-							hazırlayabilir ve mezun olduktan sonra bir işe
-							başvuru yapabilirler.
-						</p>
-					</section>
+								<div className="flex flex-col w-full">
+									<h2 className="text-3xl text-center font-bold mb-8">
+										{parser.get("stacks_title")}
+									</h2>
+									<div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+										{CONFIG.STACKS.map((stack, idx) => (
+											<div
+												className="w-10 mx-auto flex items-center flex-col justify-center"
+												key={idx}
+											>
+												<CustomImage
+													src={stack.icon}
+													alt={stack.alt}
+												/>
+												<h2 className="text-xs dark:text-gray-200 font-bold mt-3 opacity-80">
+													{stack.alt}
+												</h2>
+											</div>
+										))}
+									</div>
+								</div>
+							</div>
+						</section>
 
-					<section
-						id="referanslar"
-						className="mx-auto mt-5 w-full rounded-lg bg-gray-200 px-6 py-4 dark:bg-gray-800"
-					>
-						<h5 className="mb-3 text-center text-lg font-bold uppercase text-black dark:text-white">
-							Çözüm Ortaklarımız
-						</h5>
-						<div className="flex justify-center">
-							<CustomImage
-								src="https://cdn.discordapp.com/attachments/1002110836296396890/1050387812375068793/image.png"
-								alt=""
-							/>
-						</div>
-					</section>
+						<section className="flex flex-col text-center justify-between pb-12 md:pb-24 lg:pt-20">
+							<h2 className="text-3xl w-full text-center font-bold">
+								You<span className="text-red-600">Tube</span>
+							</h2>
+
+							<div className="my-5 grid sm:grid-cols-3 gap-3">
+								<div className="flex flex-col">
+									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
+										<FiUsers className="text-black dark:text-white w-5 h-5" />{" "}
+										{parser.get("subscriberCount")}
+									</h5>
+									<p className="text-2xl font-semibold">
+										{subscriberCount}
+									</p>
+								</div>
+
+								<div className="flex flex-col">
+									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
+										<FiVideo className="text-black dark:text-white w-5 h-5" />{" "}
+										{parser.get("videoCount")}
+									</h5>
+									<p className="text-2xl font-semibold">
+										{videoCount}
+									</p>
+								</div>
+
+								<div className="flex flex-col">
+									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
+										<FiEye className="text-black dark:text-white w-5 h-5" />{" "}
+										{parser.get("viewCount")}
+									</h5>
+									<p className="text-2xl font-semibold">
+										{viewCount}
+									</p>
+								</div>
+							</div>
+
+							<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 justify-items-center">
+								{videos.items.map((video, idx) => (
+									<VideoCard
+										key={idx}
+										link={video.id.videoId}
+										image={
+											video.snippet.thumbnails.medium.url
+										}
+										title={video.snippet.title}
+									/>
+								))}
+							</div>
+
+							<div className="relative w-full">
+								<div>
+									<Link href="/youtube">
+										<a target="_blank">
+											<button className="group flex items-center justify-center text-xl font-bold mx-auto">
+												<div className="bg-gray-400 dark:bg-gray-700 p-3 rounded-full group-hover:bg-red-500 dark:group-hover:bg-red-600 mr-5 duration-300">
+													<FiYoutube className="h-6 w-6" />
+												</div>
+												{parser.get("youtube_button")}
+											</button>
+										</a>
+									</Link>
+								</div>
+
+								<div className="mt-5">
+									<Link href="/videos">
+										<button className="rounded-full w-32 sm:w-64 h-12 px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium dark:border-gray-900 border-gray-400">
+											<span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 dark:bg-gray-900 bg-gray-400 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+											<span className="relative text-gray-900 dark:text-gray-200 transition duration-300 group-hover:text-black dark:group-hover:text-white ease">
+												{parser.get("view_button")}
+											</span>
+										</button>
+									</Link>
+								</div>
+							</div>
+						</section>
+
+						<section className="flex flex-col text-center justify-between pt-12 pb-12 md:pb-24 lg:pt-20">
+							<h2 className="text-3xl w-full text-center font-bold">
+								{parser.get("works")}
+							</h2>
+
+							<div className="my-5 grid grid-cols-1 gap-12 md:gap-5 md:grid-cols-3">
+								{CONFIG.WORKS.slice(0, 6).map(
+									(project, index) => (
+										<WorkCard
+											image={project.icon}
+											name={project.text}
+											desc={project.alt}
+											link={project.link}
+											key={index}
+										/>
+									),
+								)}
+							</div>
+
+							<div className="relative w-full">
+								<Link href="/works">
+									<button className="rounded-full w-32 sm:w-64 h-12 px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium dark:border-gray-900 border-gray-400">
+										<span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 dark:bg-gray-900 bg-gray-400 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+										<span className="relative text-gray-900 dark:text-gray-200 transition duration-300 group-hover:text-black dark:group-hover:text-white ease">
+											{parser.get("view_button")}
+										</span>
+									</button>
+								</Link>
+							</div>
+						</section>
+
+						<section className="flex flex-col text-center justify-between pb-12 md:pb-24 lg:pt-20">
+							<h2 className="text-3xl w-full text-center font-bold">
+								{parser.get("favorite_project_title")}
+							</h2>
+
+							<div className="my-5 grid grid-cols-1 gap-12 md:gap-5 md:grid-cols-3 items-start">
+								{CONFIG.PROJECTS.slice(0, 6).map(
+									(project, index) => (
+										<ProjectCard
+											image={project.icon}
+											name={project.text}
+											desc={project.alt}
+											link={project.link}
+											tags={project.tags}
+											key={index}
+										/>
+									),
+								)}
+							</div>
+
+							<div className="relative w-full">
+								<Link href="/projects">
+									<button className="rounded-full w-32 sm:w-64 h-12 px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium dark:border-gray-900 border-gray-400">
+										<span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 dark:bg-gray-900 bg-gray-400 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+										<span className="relative text-gray-900 dark:text-gray-200 transition duration-300 group-hover:text-black dark:group-hover:text-white ease">
+											{parser.get("view_button")}
+										</span>
+									</button>
+								</Link>
+							</div>
+						</section>
+					</div>
 				</div>
-			</div>
+			</section>
 		</Layout>
 	);
-};
+}
 
-export default IndexPage;
-
-export async function getServerSideProps(context) {
-	const session = await unstable_getServerSession(
-		context.req,
-		context.res,
-		options,
+export async function getServerSideProps() {
+	const videoRes = await fetch(
+		"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UCdNQk7uEbiZh4Hyovavdo4A&part=snippet,id&order=date&maxResults=3",
 	);
+	const videos = await videoRes.json();
 
-	const { data, error } = await supabase
-		.from("news")
-		.select(`id, user, title, desc, created_at, image`)
-		.order("created_at", {
-			ascending: false,
-		});
+	const statsRes = await fetch(
+		"https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCdNQk7uEbiZh4Hyovavdo4A&key=AIzaSyC9qkOd0RKEZ1bQ8MNO9DXw7Lh3cf9CpHQ",
+	);
+	const stats = await statsRes.json();
 
-	if (error) {
-		context.res.writeHead(302, {
-			location: "/",
-		});
-		context.res.end();
-	}
-
-	for (const d of data) {
-		const { data: user } = await supabase
-			.from("users")
-			.select("username")
-			.eq("id", d.user)
-			.single();
-		d.user = user;
-	}
+	const { subscriberCount, videoCount, viewCount } =
+		stats.items[0].statistics;
 
 	return {
 		props: {
-			session,
-			news: data,
+			videos,
+			subscriberCount,
+			videoCount,
+			viewCount,
 		},
 	};
 }
