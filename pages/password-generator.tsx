@@ -107,13 +107,7 @@ const PasswordPage: NextPage = () => {
 										min={1}
 										max={50}
 										value={passLength}
-										onChange={(event) =>
-											setPassLength(
-												event.target.value == ""
-													? ""
-													: parseInt(event.target.value),
-											)
-										}
+										onChange={(event) => { setPassLength(event.target.value == "" ? "" : parseInt(event.target.value) )}}
 										className="w-2/6 rounded border border-gray-900 bg-gray-900"
 										aria-labelledby="password-length"
 									/>

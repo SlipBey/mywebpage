@@ -2,6 +2,7 @@ import { CONTACT } from "@libs/config/contact";
 import { STACKS } from "@libs/config/stack";
 import { WORKS } from "@libs/config/works";
 import { PROJECTS } from "@libs/config/project";
+import { APPS } from "./apps";
 
 const SEO = {
 	layoutTitle: "%s - SlipBey",
@@ -44,4 +45,5 @@ export const CONFIG = {
 	STACKS,
 	WORKS,
 	PROJECTS,
+	APPS,
 };

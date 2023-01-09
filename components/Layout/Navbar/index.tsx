@@ -77,6 +77,10 @@ export const Navbar: FC = () => {
 			name: parser.get("projects"),
 			link: "/projects",
 		},
+		{
+			name: parser.get("apps"),
+			link: "/apps",
+		},
 	];
 
 	useEffect(() => {

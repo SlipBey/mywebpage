@@ -2138,6 +2138,11 @@
     "array-includes" "^3.1.5"
     "object.assign" "^4.1.2"
 
+"keymaster@^1.6.2":
+  "integrity" "sha512-OvA/AALN8IDKKkTk2Z+bDrzs/SQao4lo/QPbwSdDvm+frxfiYiYCSn1aHFUypJY3SruAO1y/c771agBmTXqUtg=="
+  "resolved" "https://registry.npmjs.org/keymaster/-/keymaster-1.6.2.tgz"
+  "version" "1.6.2"
+
 "kleur@^3.0.3":
   "integrity" "sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w=="
   "resolved" "https://registry.npmjs.org/kleur/-/kleur-3.0.3.tgz"
@@ -2959,6 +2964,13 @@
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
+
+"react-simple-tetris@^0.3.1":
+  "integrity" "sha512-OiHscXNjmgasnswSNEs/SqroI6XdTCeyUkpbwFCkU5uzZnqehCi7YpZOeN5tlHmmVCSFga/m3r1AFcdpo9SlYQ=="
+  "resolved" "https://registry.npmjs.org/react-simple-tetris/-/react-simple-tetris-0.3.1.tgz"
+  "version" "0.3.1"
+  dependencies:
+    "keymaster" "^1.6.2"
 
 "react-toastify@^9.1.1":
   "integrity" "sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw=="
