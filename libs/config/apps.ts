@@ -1,4 +1,5 @@
 import { BsFillDice3Fill } from "react-icons/bs";
+import { FaQrcode } from "react-icons/fa";
 import { FiBox } from "react-icons/fi";
 import { GiPartyPopper } from "react-icons/gi";
 
@@ -23,5 +24,12 @@ export const APPS = [
 		icon: FiBox,
 		alt: "Eğlenceli bir tetris oyunu.",
 		color: "text-red-500",
+	},
+	{
+		href: "/qrcode-generator",
+		title: "QR Code Oluşturucu",
+		icon: FaQrcode,
+		alt: "Özelleştirilebilir seçenekleriyle qrcode oluşturucu.",
+		color: "text-black",
 	},
 ];

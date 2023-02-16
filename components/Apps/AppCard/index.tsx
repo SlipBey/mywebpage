@@ -15,7 +15,7 @@ export const AppCard: FC<IAppProps> = ({ name, link, text, icon, color }) => {
 	const Icon = icon;
 
 	return (
-		<Link href={`/apps/${link}`}>
+		<Link href={`/apps${link}`}>
 			<div className="max-w-md p-3 hover:-translate-y-1 hover:shadow-2xl rounded-md duration-300">
 				<div className="flex items-center justify-center">
 					<Icon className={classNames("text-6xl", color)} />

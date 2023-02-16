@@ -16,25 +16,44 @@ import { IconType } from "react-icons/lib";
 const DiceGiveawayPage: NextPage = () => {
 	//const parser = useLocaleParser();
 
-	const [number, setNumber] = useState(0);
-	const [numberTwo, setNumberTwo] = useState(0);
-	const [numberTwo2, setNumberTwo2] = useState(0);
+	const [diceNumber, setDiceNumber] = useState(0);
+	const [dice, setDice] = useState([]);
+	const [click, setClick] = useState(false);
+
+	const onNumber = async (e) => {
+		await setDiceNumber(e);
+		setDice([]);
+		setClick(false);
+	};
 
 	const onDice = async () => {
-		const winner = Math.floor(Math.random() * 7);
-		if (winner > 0) {
-			setNumber(winner);
-			setNumberTwo(0);
-			setNumberTwo2(0);
-		}
-	};
-	const onDiceTwo = async () => {
-		const oneDice = Math.floor(Math.random() * 7);
-		const twoDice = Math.floor(Math.random() * 7);
-		if (oneDice > 0 && twoDice > 0) {
-			setNumberTwo(oneDice);
-			setNumberTwo2(twoDice);
-			setNumber(0);
+		setClick(true);
+		for (let i = 0; i < diceNumber; i++) {
+			let diceInt = Math.floor(Math.random() * 6);
+			switch (diceInt) {
+				case 0:
+					diceInt = 1;
+					break;
+				case 1:
+					diceInt = 2;
+					break;
+				case 2:
+					diceInt = 3;
+					break;
+				case 3:
+					diceInt = 4;
+					break;
+				case 4:
+					diceInt = 5;
+					break;
+				case 5:
+					diceInt = 6;
+					break;
+				default:
+					diceInt = 0;
+			}
+
+			setDice([...dice, diceInt]);
 		}
 	};
 
@@ -76,54 +95,59 @@ const DiceGiveawayPage: NextPage = () => {
 								Zar At
 							</h2>
 							<div className="mx-auto lg:w-96">
+								<div className="flex flex-col justify-left text-left items-left w-full">
+									<label>
+										Atılacak Zar Sayısı{" "}
+										<span className="text-red-500">*</span>
+									</label>
+									<input
+										type="number"
+										onChange={(e) =>
+											onNumber(e.target.value)
+										}
+										maxLength={1}
+										minLength={1}
+										placeholder="Lütfen sayı giriniz.."
+										className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-900 dark:text-gray-200"
+										min={1}
+										max={9}
+										required
+									/>
+								</div>
 								<div className="w-full flex flex-col lg:flex-row gap-2">
 									<button
+										disabled={click}
 										onClick={onDice}
-										className="mt-2 bg-blue-600 hover:bg-blue-700 w-full p-3 rounded-lg font-semibold text-lg duration-200 text-white"
+										className="mt-2 bg-blue-600 hover:bg-blue-700 w-full p-3 rounded-lg font-semibold text-lg duration-200 text-white disabled:cursor-not-allowed"
 									>
-										Tek Zar At
-									</button>
-									<button
-										onClick={onDiceTwo}
-										className="mt-2 bg-green-600 hover:bg-green-700 w-full p-3 rounded-lg font-semibold text-lg duration-200 text-white"
-									>
-										Çift Zar At
+										Zar At
 									</button>
 								</div>
 								<div className="mt-5">
-									{number > 0 && (
-										<div className="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg text-left">
-											<div>{getIcon(number)}</div>
-											<div>
-												Atılan Zar: <strong>Tek</strong>
-											</div>
-											<div>
-												Sayı: <strong>{number}</strong>
-											</div>
-										</div>
-									)}
-									{numberTwo > 0 && numberTwo2 > 0 && (
+									{dice.length >= 1 && (
 										<div className="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg text-left">
 											<div className="flex gap-2">
-												{getIcon(numberTwo)}{" "}
-												{getIcon(numberTwo2)}
+												{dice.map((d, idx) => (
+													<span key={idx}>{getIcon(d)}</span>
+												))}
 											</div>
 											<div>
-												Atılan Zar:{" "}
-												<strong>Çift</strong>
+												Atılan Zar Sayısı:{" "}
+												<strong>{dice.length}</strong>
 											</div>
-											<div>
-												İlk Zar:{" "}
-												<strong>{numberTwo}</strong>
-											</div>
-											<div>
-												İkinci Zar:{" "}
-												<strong>{numberTwo2}</strong>
-											</div>
+											{dice.map((d, idx) => (
+												<div key={idx}>
+													{idx + 1}.Zar:{" "}
+													<strong>{d}</strong>
+												</div>
+											))}
 											<div>
 												Toplam:{" "}
 												<strong>
-													{numberTwo + numberTwo2}
+													{dice.reduce(
+														(a, b) => a + b,
+														0,
+													)}
 												</strong>
 											</div>
 										</div>

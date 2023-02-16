@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { Link } from "@components/Utils/Link";
 import { FiMoon, FiSun, FiX } from "react-icons/fi";
 import { useTheme } from "next-themes";
@@ -18,7 +18,6 @@ import Favicon from "@assets/icon.svg";
 export const Navbar: FC = () => {
 	const { theme, setTheme } = useTheme();
 	const [hash, setHash] = useState(false);
-	const [top, setTop] = useState(false);
 	const router = useRouter();
 	const parser = useLocaleParser();
 
@@ -83,23 +82,8 @@ export const Navbar: FC = () => {
 		},
 	];
 
-	useEffect(() => {
-		window.onscroll = function () {
-			if (
-				document.body.scrollTop > 20 ||
-				document.documentElement.scrollTop > 20
-			)
-				setTop(true);
-			else setTop(false);
-		};
-	}, []);
-
 	return (
-		<header
-			className={classNames("top-0 w-full z-10 duration-500", {
-				"sticky bg-gray-100 dark:bg-gray-900": top,
-			})}
-		>
+		<header className="sticky top-0 w-full z-10 bg-gray-100 dark:bg-gray-900">
 			<nav className="py-4 px-8 flex items-center justify-between">
 				<div className="flex items-center space-x-6">
 					<div className="flex items-center">
