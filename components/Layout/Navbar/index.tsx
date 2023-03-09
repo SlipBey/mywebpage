@@ -64,10 +64,10 @@ export const Navbar: FC = () => {
 			name: parser.get("about"),
 			link: "/#about",
 		},
-		{
+		/*{
 			name: parser.get("videos"),
 			link: "/videos",
-		},
+		},*/
 		{
 			name: parser.get("works"),
 			link: "/works",
