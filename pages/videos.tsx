@@ -7,12 +7,7 @@ import { FiEye, FiUsers, FiVideo, FiYoutube } from "react-icons/fi";
 import { useState } from "react";
 import classNames from "classnames";
 
-export default function VideosPage({
-	videos,
-	subscriberCount,
-	videoCount,
-	viewCount,
-}) {
+export default function VideosPage() {
 	const parser = useLocaleParser();
 
 	const [videoOption, setVideoOption] = useState(0);
@@ -26,7 +21,7 @@ export default function VideosPage({
 							<h2 className="relative text-3xl w-full text-center font-bold">
 								{parser.get("statistics")}
 							</h2>
-
+							{/*
 							<div className="my-5 grid sm:grid-cols-3 gap-3">
 								<div className="flex flex-col">
 									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
@@ -124,7 +119,7 @@ export default function VideosPage({
 								</h5>
 
 								<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 justify-items-center">
-									{/*videos.items.map((video, idx) => (
+									{videos.items.map((video, idx) => (
         <VideoCard
             key={idx}
             link={video.id.videoId}
@@ -133,7 +128,7 @@ export default function VideosPage({
             }
             title={video.snippet.title}
         />
-    ))*/}
+    ))}
 								</div>
 							</div>
 
@@ -153,7 +148,7 @@ export default function VideosPage({
 										</a>
 									</Link>
 								</div>
-							</div>
+							</div>*/}
 						</div>
 					</div>
 				</div>
@@ -161,7 +156,7 @@ export default function VideosPage({
 		</Layout>
 	);
 }
-
+/*
 export async function getServerSideProps() {
 	const videoRes = await fetch(
 		"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UCdNQk7uEbiZh4Hyovavdo4A&part=snippet,id&order=date&maxResults=18",
@@ -184,4 +179,4 @@ export async function getServerSideProps() {
 			viewCount,
 		},
 	};
-}
+}*/

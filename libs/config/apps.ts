@@ -1,5 +1,5 @@
 import { BsFillDice3Fill } from "react-icons/bs";
-import { FaQrcode } from "react-icons/fa";
+import { FaQrcode, FaWineBottle } from "react-icons/fa";
 import { FiBox } from "react-icons/fi";
 import { GiPartyPopper } from "react-icons/gi";
 
@@ -31,5 +31,12 @@ export const APPS = [
 		icon: FaQrcode,
 		alt: "Özelleştirilebilir seçenekleriyle qrcode oluşturucu.",
 		color: "text-black",
+	},
+	{
+		href: "/spin-bottle",
+		title: "Şişe Çevirmece",
+		icon: FaWineBottle,
+		alt: "Arkadaşlarınızla eğlenmek için birebir şişe çevirmece.",
+		color: "text-orange-600",
 	},
 ];

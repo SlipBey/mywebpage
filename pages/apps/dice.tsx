@@ -128,7 +128,9 @@ const DiceGiveawayPage: NextPage = () => {
 										<div className="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg text-left">
 											<div className="flex gap-2">
 												{dice.map((d, idx) => (
-													<span key={idx}>{getIcon(d)}</span>
+													<span key={idx}>
+														{getIcon(d)}
+													</span>
 												))}
 											</div>
 											<div>

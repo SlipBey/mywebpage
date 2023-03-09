@@ -11,12 +11,7 @@ import { WorkCard } from "@components/Works/WorkCard";
 import { VideoCard } from "@components/Videos/VideoCard";
 import { FiEye, FiUsers, FiVideo, FiYoutube } from "react-icons/fi";
 
-export default function HomePage({
-	videos,
-	subscriberCount,
-	videoCount,
-	viewCount,
-}) {
+export default function HomePage() {
 	const parser = useLocaleParser();
 
 	return (
@@ -107,6 +102,7 @@ export default function HomePage({
 							</div>
 						</section>
 
+						{/*
 						<section className="flex flex-col text-center justify-between pb-12 md:pb-24 lg:pt-20">
 							<h2 className="text-3xl w-full text-center font-bold">
 								You<span className="text-red-600">Tube</span>
@@ -154,7 +150,7 @@ export default function HomePage({
 										}
 										title={video.snippet.title}
 									/>
-								))}
+									))}
 							</div>
 
 							<div className="relative w-full">
@@ -183,7 +179,7 @@ export default function HomePage({
 								</div>
 							</div>
 						</section>
-
+*/}
 						<section className="flex flex-col text-center justify-between pt-12 pb-12 md:pb-24 lg:pt-20">
 							<h2 className="text-3xl w-full text-center font-bold">
 								{parser.get("works")}
@@ -252,7 +248,7 @@ export default function HomePage({
 		</Layout>
 	);
 }
-
+/*
 export async function getServerSideProps() {
 	const videoRes = await fetch(
 		"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UCdNQk7uEbiZh4Hyovavdo4A&part=snippet,id&order=date&maxResults=3",
@@ -276,3 +272,4 @@ export async function getServerSideProps() {
 		},
 	};
 }
+*/

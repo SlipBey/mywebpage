@@ -1,7 +1,7 @@
 import {
 	FiMail,
 	FiGithub,
-	FiYoutube,
+	//FiYoutube,
 	FiInstagram,
 	FiLinkedin,
 } from "react-icons/fi";
@@ -23,11 +23,11 @@ export const CONTACT = [
 		icon: FiLinkedin,
 		alt: "LinkedIn",
 	},
-	{
+	/*{
 		href: "/youtube",
 		icon: FiYoutube,
 		alt: "YouTube",
-	},
+	},*/
 	{
 		href: "/instagram",
 		icon: FiInstagram,
