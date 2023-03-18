@@ -34,7 +34,7 @@ module.exports = () => {
 				},
 				{
 					source: "/youtube",
-					destination: "https://www.youtube.com/@SlipBey",
+					destination: "https://www.youtube.com/@SlipBeyYoutube/",
 					permanent: true,
 				},
 				{
