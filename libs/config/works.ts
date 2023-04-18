@@ -2,6 +2,8 @@ import slipyme from "@assets/works/slipyme.svg";
 import enderrise from "@assets/works/enderrise.svg";
 import code from "@assets/works/slipymecode.svg";
 import design from "@assets/works/design.svg";
+import deprem from "@assets/works/slipymedeprem.svg";
+import todolist from "@assets/works/todolist.svg";
 
 export const WORKS = [
 	{
@@ -11,10 +13,22 @@ export const WORKS = [
 		link: "https://www.slipyme.com",
 	},
 	{
+		icon: todolist,
+		text: "Slipyme Todolist",
+		alt: "Slipyme'nin Yenilikçi Todolist Projesi!",
+		link: "https://todolist.slipyme.com",
+	},
+	{
 		icon: code,
 		text: "Slipyme Code",
 		alt: "Slipyme'nin Yazılımcılar için ayırmış olduğu bir departman.",
 		link: "https://code.slipyme.com",
+	},
+	{
+		icon: deprem,
+		text: "Slipyme Deprem",
+		alt: "Depremde ne yapılması gerekir, yardımcı olacak kaynaklar neler? Yardımcı bir kaynak sistemi.",
+		link: "https://deprem.slipyme.com",
 	},
 	{
 		icon: design,
