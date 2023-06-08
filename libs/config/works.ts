@@ -13,6 +13,12 @@ export const WORKS = [
 		link: "https://www.slipyme.com",
 	},
 	{
+		icon: botlist,
+		text: "Slipyme Botlist",
+		alt: "Slipyme'nin Discord Botlist ve Serverlist Projesi!",
+		link: "https://botlist.slipyme.com",
+	},
+	{
 		icon: todolist,
 		text: "Slipyme Todolist",
 		alt: "Slipyme'nin Yenilikçi Todolist Projesi!",
