@@ -4,6 +4,7 @@ import code from "@assets/works/slipymecode.svg";
 import design from "@assets/works/design.svg";
 import deprem from "@assets/works/slipymedeprem.svg";
 import todolist from "@assets/works/todolist.svg";
+import botlist from "@assets/works/botlist.svg";
 
 export const WORKS = [
 	{
