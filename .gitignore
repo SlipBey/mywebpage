@@ -13,21 +13,24 @@
 /out/
 
 # production
-/build
+/build/
 
 # misc
 .DS_Store
-*.pem
 .env*
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
 
-# vercel
-.vercel
+# Lockfiles
+yarn.lock
+package-lock.json
 
-# typescript
-*.tsbuildinfo
+# sitemap
+sitemap*.xml
+robots.txt
+
+# swv output
+.swc
