@@ -1,4 +1,3 @@
-import passwordGenerator from "@assets/projects/passwordGenerator.svg";
 import memoryGame from "@assets/projects/memoryGame.svg";
 import alert from "@assets/projects/sweetAlert.svg";
 import arcadeGame from "@assets/projects/2048Game.svg";
@@ -19,7 +18,7 @@ export const PROJECTS = [
 		icon: enderbot,
 		text: "EnderBot",
 		alt: "EnderRise Network için yapmış olduğum ancak herkese açık olarak sunduğum çok amaçlı discord botu.",
-		link: "https://enderbot.net",
+		link: "https://enderbot-site.vercel.app",
 		tags: ["Website", "Discord-Bot"],
 	},
 	{
@@ -33,15 +32,8 @@ export const PROJECTS = [
 		icon: xir,
 		text: "XiR Developer",
 		alt: "Zamanın efsanesi olan XiR'in baş yöneticisi ve geliştirici ekibindeyim.",
-		link: "https://xirdeveloper.blogspot.com",
+		link: "https://feed-x.blogspot.com/",
 		tags: ["Blog", "Website", "Discord-Bot"],
-	},
-	{
-		icon: passwordGenerator,
-		text: "Password Generator",
-		alt: "Rastgele şifreler oluşturabileceğiniz mükemmel bir kombinasyon uygulamasıdır.",
-		link: "/password-generator",
-		tags: ["Website"],
 	},
 	{
 		icon: memoryGame,

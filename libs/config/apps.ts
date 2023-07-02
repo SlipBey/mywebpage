@@ -1,6 +1,6 @@
 import { BsFillDice3Fill } from "react-icons/bs";
 import { FaQrcode, FaWineBottle } from "react-icons/fa";
-import { FiBox } from "react-icons/fi";
+import { FiBox, FiKey } from "react-icons/fi";
 import { GiPartyPopper } from "react-icons/gi";
 
 export const APPS = [
@@ -38,5 +38,12 @@ export const APPS = [
 		icon: FaWineBottle,
 		alt: "Arkadaşlarınızla eğlenmek için birebir şişe çevirmece.",
 		color: "text-orange-600",
+	},
+	{
+		href: "/password-generator",
+		title: "Şifre Oluşturucu",
+		icon: FiKey,
+		alt: "Güvenli şifre oluşturucu.",
+		color: "text-sky-600",
 	},
 ];

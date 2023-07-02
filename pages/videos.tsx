@@ -7,7 +7,12 @@ import { FiEye, FiUsers, FiVideo, FiYoutube } from "react-icons/fi";
 import { useState } from "react";
 import classNames from "classnames";
 
-export default function VideosPage() {
+export default function VideosPage({
+	videos,
+	subscriberCount,
+	videoCount,
+	viewCount,
+}) {
 	const parser = useLocaleParser();
 
 	const [videoOption, setVideoOption] = useState(0);
@@ -21,7 +26,7 @@ export default function VideosPage() {
 							<h2 className="relative text-3xl w-full text-center font-bold">
 								{parser.get("statistics")}
 							</h2>
-							{/*
+
 							<div className="my-5 grid sm:grid-cols-3 gap-3">
 								<div className="flex flex-col">
 									<h5 className="text-xl font-semibold inline-flex justify-center items-center gap-2">
@@ -120,15 +125,16 @@ export default function VideosPage() {
 
 								<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 justify-items-center">
 									{videos.items.map((video, idx) => (
-        <VideoCard
-            key={idx}
-            link={video.id.videoId}
-            image={
-                video.snippet.thumbnails.medium.url
-            }
-            title={video.snippet.title}
-        />
-    ))}
+										<VideoCard
+											key={idx}
+											link={video.id.videoId}
+											image={
+												video.snippet.thumbnails.medium
+													.url
+											}
+											title={video.snippet.title}
+										/>
+									))}
 								</div>
 							</div>
 
@@ -148,7 +154,7 @@ export default function VideosPage() {
 										</a>
 									</Link>
 								</div>
-							</div>*/}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -156,15 +162,15 @@ export default function VideosPage() {
 		</Layout>
 	);
 }
-/*
+
 export async function getServerSideProps() {
 	const videoRes = await fetch(
-		"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UCdNQk7uEbiZh4Hyovavdo4A&part=snippet,id&order=date&maxResults=18",
+		"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UC3qq9Ul7xWt7A5MlNQnvITw&part=snippet,id&order=date&maxResults=3",
 	);
 	const videos = await videoRes.json();
 
 	const statsRes = await fetch(
-		"https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCdNQk7uEbiZh4Hyovavdo4A&key=AIzaSyC9qkOd0RKEZ1bQ8MNO9DXw7Lh3cf9CpHQ",
+		"https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC3qq9Ul7xWt7A5MlNQnvITw&key=AIzaSyC9qkOd0RKEZ1bQ8MNO9DXw7Lh3cf9CpHQ",
 	);
 	const stats = await statsRes.json();
 
@@ -179,4 +185,4 @@ export async function getServerSideProps() {
 			viewCount,
 		},
 	};
-}*/
+}

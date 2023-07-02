@@ -11,7 +11,12 @@ import { WorkCard } from "@components/Works/WorkCard";
 import { VideoCard } from "@components/Videos/VideoCard";
 import { FiEye, FiUsers, FiVideo, FiYoutube } from "react-icons/fi";
 
-export default function HomePage() {
+export default function HomePage({
+	videos,
+	subscriberCount,
+	videoCount,
+	viewCount,
+}) {
 	const parser = useLocaleParser();
 
 	return (
@@ -102,7 +107,6 @@ export default function HomePage() {
 							</div>
 						</section>
 
-						{/*
 						<section className="flex flex-col text-center justify-between pb-12 md:pb-24 lg:pt-20">
 							<h2 className="text-3xl w-full text-center font-bold">
 								You<span className="text-red-600">Tube</span>
@@ -150,7 +154,7 @@ export default function HomePage() {
 										}
 										title={video.snippet.title}
 									/>
-									))}
+								))}
 							</div>
 
 							<div className="relative w-full">
@@ -179,7 +183,7 @@ export default function HomePage() {
 								</div>
 							</div>
 						</section>
-*/}
+
 						<section className="flex flex-col text-center justify-between pt-12 pb-12 md:pb-24 lg:pt-20">
 							<h2 className="text-3xl w-full text-center font-bold">
 								{parser.get("works")}
@@ -248,15 +252,15 @@ export default function HomePage() {
 		</Layout>
 	);
 }
-/*
+
 export async function getServerSideProps() {
 	const videoRes = await fetch(
-		"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UCdNQk7uEbiZh4Hyovavdo4A&part=snippet,id&order=date&maxResults=3",
+		"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UC3qq9Ul7xWt7A5MlNQnvITw&part=snippet,id&order=date&maxResults=3",
 	);
 	const videos = await videoRes.json();
 
 	const statsRes = await fetch(
-		"https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCdNQk7uEbiZh4Hyovavdo4A&key=AIzaSyC9qkOd0RKEZ1bQ8MNO9DXw7Lh3cf9CpHQ",
+		"https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC3qq9Ul7xWt7A5MlNQnvITw&key=AIzaSyC9qkOd0RKEZ1bQ8MNO9DXw7Lh3cf9CpHQ",
 	);
 	const stats = await statsRes.json();
 
@@ -272,4 +276,3 @@ export async function getServerSideProps() {
 		},
 	};
 }
-*/
