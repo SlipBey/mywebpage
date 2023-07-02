@@ -165,7 +165,7 @@ export default function VideosPage({
 
 export async function getServerSideProps() {
 	const videoRes = await fetch(
-		"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UC3qq9Ul7xWt7A5MlNQnvITw&part=snippet,id&order=date&maxResults=3",
+		"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UC3qq9Ul7xWt7A5MlNQnvITw&part=snippet,id&order=date&maxResults=18",
 	);
 	const videos = await videoRes.json();
 
