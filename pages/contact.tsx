@@ -18,12 +18,27 @@ const ContactPage: NextPage = () => {
 	const [name, setName] = useState("");
 	const [surname, setSurname] = useState("");
 	const [email, setEmail] = useState("");
-	const [phone, setPhone] = useState("");
 	const [subject, setSubject] = useState("istek");
 	const [message, setMessage] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
+
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const formattedNumber = formatPhoneNumber(event.target.value);
+		setPhoneNumber(formattedNumber);
+	};
+
+	const formatPhoneNumber = (input: string) => {
+		const cleaned = ("" + input).replace(/\D/g, "");
+		const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,4})$/);
+		if (match) {
+			const formatted = `${match[1]} ${match[2]} ${match[3]}`;
+			return formatted.trim();
+		}
+		return input;
+	};
 
 	const Hook = new webhook.Webhook(
-		"https://ptb.discord.com/api/webhooks/1060188635971997756/5K7uqV9P_o42LzifUkO-qXZ4yMYG03xISaa3rtSIQbJIMdJJFz_cZea976wnhyFf94Jp",
+		"https://ptb.discord.com/api/webhooks/1125112922713104424/vRX7YSaMJkvZ-9ocaNwd-haFZD7NmUgiF7ZUMtZ6gseYsCO_rG-TDZFp2q48sO8uneWU",
 	);
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -32,7 +47,7 @@ const ContactPage: NextPage = () => {
 			const msg = new webhook.MessageBuilder()
 				.setName(name + " " + surname)
 				.setText(
-					`Mail: ${email} - Telefon: ${phone} - Konu: ${subject} \nMesaj: ${message}`,
+					`Mail: ${email} - Telefon: ${phoneNumber} - Konu: ${subject} \nMesaj: ${message}`,
 				);
 			Hook.send(msg);
 
@@ -159,14 +174,15 @@ const ContactPage: NextPage = () => {
 											<div className="flex flex-col justify-left text-left items-left">
 												<label>Telefon Numaranız</label>
 												<input
-													onChange={(e) =>
-														setPhone(e.target.value)
-													}
 													type="tel"
-													minLength={10}
-													maxLength={11}
 													disabled={disabledTrue}
+													maxLength={12}
+													minLength={12}
+													placeholder="Başına 0 koymayın."
 													className="w-64 rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-900 dark:text-gray-200"
+													pattern="\d{0,3} \d{0,3} \d{0,4} \d{0,4}"
+													value={phoneNumber}
+													onChange={handleChange}
 												/>
 											</div>
 										</div>

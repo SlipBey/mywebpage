@@ -52,7 +52,7 @@ export const Navbar: FC = () => {
 	};
 
 	const onClose = () => {
-		setHash(!hash);
+		setHash(false);
 	};
 
 	const Pages = [
@@ -64,10 +64,10 @@ export const Navbar: FC = () => {
 			name: parser.get("about"),
 			link: "/#about",
 		},
-		/*{
+		{
 			name: parser.get("videos"),
 			link: "/videos",
-		},*/
+		},
 		{
 			name: parser.get("works"),
 			link: "/works",
@@ -103,33 +103,28 @@ export const Navbar: FC = () => {
 						/>
 						<h1 className="ml-3 text-xl text-black dark:text-white font-semibold">
 							<Link href="/">
-								<a>
-									<span className="text-blue-600">Slip</span>
-									Bey
-								</a>
+								<span className="text-blue-600">Slip</span>
+								Bey
 							</Link>
 						</h1>
 					</div>
 					<div>
-						<ul className="hidden md:flex items-center space-x-4">
+						<ul className="hidden lg:flex items-center space-x-4">
 							{Pages.map((page, idx) => (
 								<li key={idx}>
-									<Link href={page.link}>
-										<a
-											className={classNames(
-												"border-b-2 border-transparent pb-3 transtion-all duration-200 font-medium",
-												{
-													"text-blue-600 border-blue-500":
-														page.link ==
-														router.asPath,
-													"text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white":
-														page.link !=
-														router.asPath,
-												},
-											)}
-										>
-											{page.name}
-										</a>
+									<Link
+										href={page.link}
+										className={classNames(
+											"border-b-2 border-transparent pb-3 transition-all duration-200 font-medium",
+											{
+												"text-blue-600 border-blue-500":
+													page.link === router.asPath,
+												"text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white":
+													page.link !== router.asPath,
+											},
+										)}
+									>
+										{page.name}
 									</Link>
 								</li>
 							))}
@@ -154,6 +149,16 @@ export const Navbar: FC = () => {
 									className="w-16 h-16"
 								/>
 							</Link>
+
+							<div className="ml-2">
+								<button
+									aria-label="Change Theme"
+									onClick={onTheme}
+									className="mr-2 h-10 w-10 rounded-xl bg-blue-600 text-sm text-white hover:bg-blue-700 focus:outline-none"
+								>
+									{getIcon()}
+								</button>
+							</div>
 							<div className="flex-grow" />
 							<button
 								aria-label="Close"
@@ -171,27 +176,36 @@ export const Navbar: FC = () => {
 										className="mb-1 block cursor-pointer rounded-xl p-4 text-sm font-semibold text-gray-500 hover:bg-blue-600 hover:text-white"
 									>
 										<Link href={link.link}>
-											<span>{link.name}</span>
+											{link.name}
 										</Link>
 									</li>
 								))}
 							</ul>
 						</div>
+						<div className="mt-2">
+							<Link
+								href="/contact"
+								className="cursor-pointer rounded-xl bg-blue-600 py-2 px-6 text-sm font-bold text-white hover:bg-blue-700"
+							>
+								{parser.get("contact")}
+							</Link>
+						</div>
 					</nav>
 				</div>
 				<div className="flex items-center gap-2">
 					<div>
-						<Link href="/contact">
-							<span className="hidden cursor-pointer rounded-xl bg-blue-600 py-2 px-6 text-sm font-bold text-white hover:bg-blue-700 lg:block">
-								{parser.get("contact")}
-							</span>
+						<Link
+							href="/contact"
+							className="hidden cursor-pointer rounded-xl bg-blue-600 py-2 px-6 text-sm font-bold text-white hover:bg-blue-700 lg:block"
+						>
+							{parser.get("contact")}
 						</Link>
 					</div>
-					<div className="md:hidden">
+					<div className="lg:hidden">
 						<button
 							aria-label="Open/Close Navbar"
-							onClick={onClose}
-							className="bg-gray-500 dark:bg-gray-600 text-white w-10 h-10 rounded-xl hover:opacity-80 transtion-all duration-300"
+							onClick={() => setHash(true)}
+							className="bg-gray-500 dark:bg-gray-600 text-white w-10 h-10 rounded-xl hover:opacity-80 transition-all duration-300"
 						>
 							<FaHamburger className="text-bold h-full w-full p-2" />
 						</button>
