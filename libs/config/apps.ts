@@ -37,7 +37,7 @@ export const APPS = [
 		title: "Şişe Çevirmece",
 		icon: FaWineBottle,
 		alt: "Arkadaşlarınızla eğlenmek için birebir şişe çevirmece.",
-		color: "text-orange-600",
+		color: "text-gray-600",
 	},
 	{
 		href: "/password-generator",

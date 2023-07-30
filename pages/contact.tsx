@@ -38,7 +38,7 @@ const ContactPage: NextPage = () => {
 	};
 
 	const Hook = new webhook.Webhook(
-		"https://ptb.discord.com/api/webhooks/1125112922713104424/vRX7YSaMJkvZ-9ocaNwd-haFZD7NmUgiF7ZUMtZ6gseYsCO_rG-TDZFp2q48sO8uneWU",
+		"https://ptb.discord.com/api/webhooks/1135216977259008061/0V_Xn8_CpI9B0Djmg8kDMlKQ-CUKsJVgxF9LnhPR4artJUviAu8D6rFoHBskHgZ5zMGK",
 	);
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {

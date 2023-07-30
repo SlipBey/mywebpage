@@ -22,7 +22,9 @@ export const VideoCard: FC<IVideo> = ({ link, image, title }) => {
 						className="h-48 rounded-lg"
 					/>
 					<div className="mt-3 text-center">
-						<h2 className="text-lg font-bold">{title}</h2>
+						<h2 className="text-lg font-bold">
+							{title.slice(0, 80)}
+						</h2>
 					</div>
 				</a>
 			</Link>
