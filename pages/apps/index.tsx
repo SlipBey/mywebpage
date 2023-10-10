@@ -18,7 +18,7 @@ const AppsPage: NextPage = () => {
 								{parser.get("apps")}
 							</h2>
 
-							<div className="grid grid-cols-1 gap-12 md:gap-5 md:grid-cols-3 items-start">
+							<div className="grid grid-cols-1 gap-12 md:gap-5 md:grid-cols-3 justify-items-center">
 								{CONFIG.APPS.map((apps, index) => (
 									<AppCard
 										link={apps.href}

@@ -160,14 +160,12 @@ export default function HomePage({
 							<div className="relative w-full">
 								<div>
 									<Link href="/youtube">
-										<a target="_blank">
-											<button className="group flex items-center justify-center text-xl font-bold mx-auto">
-												<div className="bg-gray-400 dark:bg-gray-700 p-3 rounded-full group-hover:bg-red-500 dark:group-hover:bg-red-600 mr-5 duration-300">
-													<FiYoutube className="h-6 w-6" />
-												</div>
-												{parser.get("youtube_button")}
-											</button>
-										</a>
+										<button className="group flex items-center justify-center text-xl font-bold mx-auto">
+											<div className="bg-gray-400 dark:bg-gray-700 p-3 rounded-full group-hover:bg-red-500 dark:group-hover:bg-red-600 mr-5 duration-300">
+												<FiYoutube className="h-6 w-6" />
+											</div>
+											{parser.get("youtube_button")}
+										</button>
 									</Link>
 								</div>
 

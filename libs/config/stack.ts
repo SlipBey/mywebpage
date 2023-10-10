@@ -14,8 +14,41 @@ import arduino from "@assets/libraries/arduino.svg";
 import graphql from "@assets/libraries/graphql.svg";
 import supabase from "@assets/libraries/supabase.svg";
 import nestjs from "@assets/libraries/nestjs.svg";
+import postgresql from "@assets/libraries/postgresql.svg";
 
 export const STACKS = [
+	{
+		icon: ts,
+		alt: "TypeScript",
+	},
+	{
+		icon: nextjs,
+		alt: "Next.js",
+	},
+	{
+		icon: tailwind,
+		alt: "Tailwind CSS",
+	},
+	{
+		icon: supabase,
+		alt: "Supabase",
+	},
+	{
+		icon: reactjs,
+		alt: "R.Native",
+	},
+	{
+		icon: reactjs,
+		alt: "React",
+	},
+	{
+		icon: postgresql,
+		alt: "PostgreSQL",
+	},
+	{
+		icon: javas,
+		alt: "JavaScript",
+	},
 	{
 		icon: html,
 		alt: "HTML",
@@ -25,28 +58,8 @@ export const STACKS = [
 		alt: "CSS",
 	},
 	{
-		icon: javas,
-		alt: "JavaScript",
-	},
-	{
 		icon: scss,
 		alt: "SASS",
-	},
-	{
-		icon: tailwind,
-		alt: "Tailwind CSS",
-	},
-	{
-		icon: ts,
-		alt: "TypeScript",
-	},
-	{
-		icon: reactjs,
-		alt: "React",
-	},
-	{
-		icon: nextjs,
-		alt: "Next.js",
 	},
 	{
 		icon: nodejs,
@@ -63,10 +76,6 @@ export const STACKS = [
 	{
 		icon: arduino,
 		alt: "Arduino",
-	},
-	{
-		icon: supabase,
-		alt: "Supabase",
 	},
 	{
 		icon: graphql,

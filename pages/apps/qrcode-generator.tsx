@@ -86,62 +86,6 @@ const QrCodePage: NextPage = () => {
 											/>
 										</div>
 									</div>
-
-									{/*   <div className="w-full p-2 bg-gray-200 dark:bg-gray-700 rounded-lg gap-3 flex flex-col">
-                                        <h1 className="my-3 text-xl font-semibold text-black dark:text-white">QR Kod (Resim)</h1>
-                                    <div className="flex flex-col justify-left text-left items-left w-full">
-									<label>
-										Resim URL
-									</label>
-									<input
-										type="text"
-										onChange={(e) => setSrc(e.target.value)}
-										placeholder="Lütfen bir url giriniz."
-                                        value={src}
-										className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-900 dark:text-gray-200"
-										required
-									/>
-								</div>
-                                <div className="flex flex-col justify-left text-left items-left w-full">
-									<label>
-										Boyut
-									</label>
-									<input
-										type="number"
-										onChange={(e) => setLogoWidth(e.target.value)}
-										placeholder="Lütfen bir sayı giriniz."
-                                        value={logoWidth}
-										className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-900 dark:text-gray-200"
-										required
-									/>
-								</div>
-                                <div className="flex flex-col justify-left text-left items-left w-full">
-									<label>
-										Konum (X)
-									</label>
-									<input
-										type="number"
-										onChange={(e) => setX(e.target.value)}
-										placeholder="Lütfen bir sayı giriniz."
-                                        value={x}
-										className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-900 dark:text-gray-200"
-										required
-									/>
-								</div>
-                                <div className="flex flex-col justify-left text-left items-left w-full">
-									<label>
-										Konum (Y)
-									</label>
-									<input
-										type="number"
-										onChange={(e) => setY(e.target.value)}
-										placeholder="Lütfen bir sayı giriniz."
-                                        value={y}
-										className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-900 dark:text-gray-200"
-										required
-									/>
-								</div>
-                                    </div> */}
 								</div>
 
 								<div className="mt-5">
@@ -153,7 +97,7 @@ const QrCodePage: NextPage = () => {
 										<Canvas
 											text={url}
 											options={{
-												level: "L",
+												//level: "L",
 												margin: 2,
 												scale: 5,
 												width: Number(width),
@@ -162,14 +106,6 @@ const QrCodePage: NextPage = () => {
 													light: background,
 												},
 											}}
-											/*logo= {{
-        src: src,
-        options: {
-          width: Number(logoWidth),
-          x: Number(x),
-          y: Number(y),
-        }
-      }}*/
 										/>
 									</div>
 

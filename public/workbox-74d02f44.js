@@ -2017,9 +2017,8 @@ define(["exports"], function (exports) {
 				});
 			}
 
-			const responseToCache = await this._ensureResponseSafeToCache(
-				response,
-			);
+			const responseToCache =
+				await this._ensureResponseSafeToCache(response);
 
 			if (!responseToCache) {
 				{
