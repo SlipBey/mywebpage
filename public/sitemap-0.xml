@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<<<<<<< HEAD
 <url><loc>https://slip.slipyme.com</loc><lastmod>2024-01-09T20:12:21.605Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://slip.slipyme.com/apps</loc><lastmod>2024-01-09T20:12:21.606Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://slip.slipyme.com/apps/dice</loc><lastmod>2024-01-09T20:12:21.606Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -13,19 +12,4 @@
 <url><loc>https://slip.slipyme.com/projects</loc><lastmod>2024-01-09T20:12:21.606Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://slip.slipyme.com/videos</loc><lastmod>2024-01-09T20:12:21.606Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://slip.slipyme.com/works</loc><lastmod>2024-01-09T20:12:21.606Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-=======
-<url><loc>https://slip.slipyme.com</loc><lastmod>2023-10-10T13:15:51.597Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/apps</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/apps/dice</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/apps/giveaway</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/apps/password-generator</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/apps/qrcode-generator</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/apps/spin-bottle</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/apps/tetris</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/contact</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/projects</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/videos</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/works</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://slip.slipyme.com/youtube/yt</loc><lastmod>2023-10-10T13:15:51.598Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
->>>>>>> 730f44d828aa9b1d1155870c22e645435bcd4be1
 </urlset>
