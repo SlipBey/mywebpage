@@ -1,29 +1,29 @@
 {
-	"compilerOptions": {
-		"target": "es6",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": false,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"typeRoots": ["node_modules/@types", "next-env.d.ts", "@types"],
-		"baseUrl": ".",
-		"paths": {
-			"@styles/*": ["styles/*"],
-			"@components/*": ["components/*"],
-			"@assets/*": ["assets/*"],
-			"@locales/*": ["locales/*"],
-			"@libs/*": ["libs/*"]
-		},
-		"incremental": true
-	},
-	"exclude": [".next", "node_modules"],
-	"include": ["./**/*.ts", "./**/*.tsx", "pages/api/Youtube/statistics.js"]
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "typeRoots": ["node_modules/@types", "next-env.d.ts", "@types"],
+    "baseUrl": ".",
+    "paths": {
+      "@/styles/*": ["./src/styles/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/assets/*": ["./assets/*"],
+      "@/locales/*": ["./src/locales/*"],
+      "@/libs/*": ["./src/libs/*"]
+    },
+    "incremental": true,
+    "strict": false
+  },
+  "exclude": [".next", "node_modules"],
+  "include": ["./**/*.ts", "./**/*.tsx", "pages/api/Youtube/statistics.js"]
 }
