@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://slip.slipyme.com
-
-# Sitemaps
-Sitemap: https://slip.slipyme.com/sitemap.xml
