@@ -9,7 +9,7 @@ const NotFoundPage: NextPage = () => {
 
   return (
     <Layout title={parser.get("notFound")}>
-      <div className="flex flex-col justify-center items-center gap-5 text-center">
+      <section className="flex flex-col justify-center items-center gap-5 text-center">
         <h1 className="mt-12 text-blue-600 text-5xl font-bold">
           404 {parser.get("notFound")}
         </h1>
@@ -36,7 +36,7 @@ const NotFoundPage: NextPage = () => {
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };

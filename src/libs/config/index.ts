@@ -38,12 +38,37 @@ const SEO = {
   domain: "https://slip.slipyme.com",
 };
 
+interface IMailProp {
+  name: string;
+  mail: string;
+}
+
+const MAILS = [
+  {
+    name: "contactMedia",
+    mail: "media",
+  },
+  {
+    name: "contactApp",
+    mail: "contact",
+  },
+  {
+    name: "contactPerson",
+    mail: "berkant",
+  },
+] as IMailProp[];
+
 export const CONFIG = {
   GA_TRACKING_ID: "G-B4FKG82G5X",
+  YOUTUBE: {
+    channelId: "UC3qq9Ul7xWt7A5MlNQnvITw",
+    apiKey: process.env.youtubeApiKey,
+  },
   SEO,
   CONTACT,
   STACKS,
   WORKS,
   PROJECTS,
   APPS,
+  MAILS,
 };

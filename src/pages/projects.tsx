@@ -10,7 +10,7 @@ const ProjectsPage: NextPage = () => {
 
   return (
     <Layout title={parser.get("projects")}>
-      <div className="text-center p-8">
+      <section className="text-center p-8">
         <div className="flex flex-col text-center justify-between relative space-y-5 mt-8">
           <h2 className="relative text-3xl w-full text-center font-bold">
             {parser.get("favorite_project_title")}
@@ -29,7 +29,7 @@ const ProjectsPage: NextPage = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };

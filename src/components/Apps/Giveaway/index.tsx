@@ -42,7 +42,10 @@ export const AppsGiveaway: React.FC<IGiveawayProp> = ({
         </label>
         <div className="flex flex-col gap-3">
           {peoples.map((r, idx) => (
-            <div className="relative flex flex-row gap-3 w-full items-center" key={idx}>
+            <div
+              className="relative flex flex-row gap-3 w-full items-center"
+              key={idx}
+            >
               <input
                 type="text"
                 placeholder="İsim"

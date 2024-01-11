@@ -86,7 +86,7 @@ const DiceGiveawayPage: NextPage = () => {
 
   return (
     <Layout title="Zar At">
-      <div className="text-center p-8">
+      <section className="text-center p-8">
         <div className="mx-auto mb-8 max-w-lg rounded-lg py-10 px-5 text-center bg-white dark:bg-gray-900 sm:px-10">
           <h2 className="relative text-3xl w-full text-center font-bold">
             Zar At
@@ -141,7 +141,7 @@ const DiceGiveawayPage: NextPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };

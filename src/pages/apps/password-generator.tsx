@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useCopyToClipboard } from "react-use";
 import { Layout } from "@/components/Layout";
 import { toast } from "react-toastify";
-import { PasswordGenerator } from "@/components/PasswordGenerator";
+import { PasswordGenerator } from "@/components/Apps/PasswordGenerator";
 import { IoMdCopy } from "react-icons/io";
 
 import { useLocaleParser } from "@/libs/localeParser";
@@ -59,7 +59,7 @@ const PasswordPage: NextPage = () => {
 
   return (
     <Layout title={parser.get("password")}>
-      <div className="text-center p-8">
+      <section className="text-center p-8">
         <div className="mx-auto mb-8 max-w-lg rounded-lg py-10 px-5 text-center bg-white dark:bg-gray-900 sm:px-10">
           <label htmlFor="password">
             <h1 className="mb-5 text-2xl font-bold transition-all sm:text-3xl">
@@ -98,7 +98,7 @@ const PasswordPage: NextPage = () => {
               <input
                 type="range"
                 id="password-length"
-                className="mr-2 h-2 w-4/6 appearance-none rounded bg-gray-200 dark:bg-gray-900"
+                className="mr-2 h-2 w-4/6 appearance-none rounded bg-gray-200 dark:bg-gray-800"
                 min={1}
                 max={50}
                 value={passLength}
@@ -192,7 +192,7 @@ const PasswordPage: NextPage = () => {
             {parser.get("create_button")}
           </button>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };

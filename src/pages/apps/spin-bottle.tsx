@@ -60,7 +60,7 @@ const BottlePage: NextPage = () => {
 
   return (
     <Layout title="Şişe Çevirmece">
-      <div className="text-center p-8">
+      <section className="text-center p-8">
         <div className="mx-auto mb-8 max-w-lg rounded-lg py-10 px-5 text-center bg-white dark:bg-gray-900 sm:px-10">
           <h2 className="relative text-3xl w-full text-center font-bold">
             Şişeyi Çevir
@@ -76,11 +76,14 @@ const BottlePage: NextPage = () => {
                   </label>
                   <div className="flex flex-col gap-3">
                     {peoples.map((r, idx) => (
-                      <div className="relative flex flex-row gap-3 w-full items-center" key={idx}>
+                      <div
+                        className="relative flex flex-row gap-3 w-full items-center"
+                        key={idx}
+                      >
                         <input
                           type="text"
                           placeholder="İsim"
-                          className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-900 dark:text-gray-200"
+                          className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-800 dark:text-gray-200"
                           onChange={(e) => updatePeople(e, r)}
                           defaultValue={r.name}
                           minLength={3}
@@ -172,7 +175,7 @@ const BottlePage: NextPage = () => {
             )}
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };

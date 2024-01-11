@@ -8,6 +8,7 @@ import { IndexYoutube } from "@/components/Index/Youtube";
 import { IndexWorks } from "@/components/Index/Works";
 import { IndexProjects } from "@/components/Index/Projects";
 import { IVideoProp } from "./videos";
+import { CONFIG } from "@/libs/config";
 
 const IndexPage: NextPage<IVideoProp> = ({
   videos,
@@ -19,8 +20,8 @@ const IndexPage: NextPage<IVideoProp> = ({
 
   return (
     <Layout title={parser.get("home")}>
-      <section className="p-5 mx-auto">
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-md m-h-96">
+      <section className="text-center p-8">
+        <div className="flex flex-col text-center justify-between relative space-y-5 mt-8">
           <div className="text-center p-8">
             <IndexHero />
             <IndexYoutube
@@ -41,12 +42,12 @@ export default IndexPage;
 
 export async function getServerSideProps() {
   const videoRes = await fetch(
-    "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBFuA_ZoKLOb2K7fKg9tnUikPUqU_Iaqvc&channelId=UC3qq9Ul7xWt7A5MlNQnvITw&part=snippet,id&order=date&maxResults=3",
+    `https://www.googleapis.com/youtube/v3/search?key=${CONFIG.YOUTUBE.apiKey}&channelId=${CONFIG.YOUTUBE.channelId}&part=snippet,id&order=date&maxResults=3`,
   );
   const videos = await videoRes.json();
 
   const statsRes = await fetch(
-    "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC3qq9Ul7xWt7A5MlNQnvITw&key=AIzaSyC9qkOd0RKEZ1bQ8MNO9DXw7Lh3cf9CpHQ",
+    `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CONFIG.YOUTUBE.channelId}&key=${CONFIG.YOUTUBE.apiKey}`,
   );
   const stats = await statsRes.json();
 
