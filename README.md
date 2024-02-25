@@ -1,8 +1,11 @@
-# My Personal Page
+# Slipyme Company Webpage
 
 Using [TypeScript](https://www.typescriptlang.org/), [NextJS](https://nextjs.org/) and [TailwindCSS](https://tailwindcss.com/)
 
-Demo: https://slip.slipyme.com
+API Repo: [https://github.com/SlipBey/slipyme-api](https://github.com/SlipBey/slipyme-api)
+
+Demo: [https://slip.slipyme.com](https://slip.slipyme.com)
+API Demo: [https://api.slipyme.com](https://api.slipyme.com)
 
 # Setup:
 

@@ -1,6 +1,6 @@
 import { useLocaleParser } from "@/libs/localeParser";
 import { formatPhoneNumber, onContactSubmit } from "@/libs/utils/contact";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 
 export const ContactForm: React.FC = () => {
   const parser = useLocaleParser();
