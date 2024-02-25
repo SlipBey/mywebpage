@@ -12,7 +12,6 @@ import Script from "next/script";
 import Head from "next/head";
 
 import "@/styles/index.scss";
-import "tippy.js/dist/tippy.css";
 
 const App = ({ Component, pageProps }: any) => {
   const router = useRouter();

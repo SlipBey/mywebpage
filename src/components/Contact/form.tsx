@@ -3,7 +3,6 @@ import { formatPhoneNumber, onContactSubmit } from "@/libs/utils/contact";
 import { FormEvent, useState } from "react";
 
 export const ContactForm: React.FC = () => {
-
   const parser = useLocaleParser();
 
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -13,24 +12,23 @@ export const ContactForm: React.FC = () => {
     setPhoneNumber(formattedNumber);
   };
 
-
   return (
     <form className="flex flex-col gap-2" onSubmit={onContactSubmit}>
-        <div className="flex flex-col justify-left text-left items-left">
-          <label>
-            {parser.get("name")} <span className="text-red-600">*</span>
-          </label>
-          <input
-            type="text"
-            name="name"
-            className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-800 dark:text-gray-200"
-            required
-          />
-        </div>
+      <div className="flex flex-col justify-left text-left items-left">
+        <label>
+          {parser.get("name")} <span className="text-red-600">*</span>
+        </label>
+        <input
+          type="text"
+          name="name"
+          className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-800 dark:text-gray-200"
+          required
+        />
+      </div>
       <div className="flex flex-col lg:flex-row gap-2">
         <div className="flex flex-col justify-left text-left items-left">
           <label>
-          {parser.get("mail")} <span className="text-red-600">*</span>
+            {parser.get("mail")} <span className="text-red-600">*</span>
           </label>
           <input
             type="email"
@@ -56,7 +54,7 @@ export const ContactForm: React.FC = () => {
       </div>
       <div className="flex flex-col justify-left text-left items-left">
         <label>
-        {parser.get("subject")} <span className="text-red-600">*</span>
+          {parser.get("subject")} <span className="text-red-600">*</span>
         </label>
         <select
           defaultValue="istek"
@@ -71,7 +69,7 @@ export const ContactForm: React.FC = () => {
       </div>
       <div className="flex flex-col justify-left text-left items-left">
         <label>
-        {parser.get("message")} <span className="text-red-600">*</span>
+          {parser.get("message")} <span className="text-red-600">*</span>
         </label>
         <textarea
           className="w-full rounded bg-gray-100 px-2 py-2 font-medium text-gray-800 outline-none dark:bg-gray-800 dark:text-gray-200"

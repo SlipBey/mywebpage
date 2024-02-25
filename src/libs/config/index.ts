@@ -8,7 +8,7 @@ const SEO = {
   layoutTitle: "%s - SlipBey",
   title: "SlipBey",
   publishDomain: "https://slip.slipyme.com",
-  themeColor: "#6D28D9",
+  themeColor: "#2563eb",
   keywords: [
     "slipyme",
     "ender",
