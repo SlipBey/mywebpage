@@ -13,6 +13,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
+    "axios": "^1.6.7",
     "classnames": "^2.5.1",
     "next": "14.0.4",
     "next-images": "^1.8.5",
@@ -29,7 +30,6 @@
     "react-use": "^17.4.2",
     "sass": "^1.69.7",
     "tippy.js": "^6.3.7",
-    "webhook-discord": "^3.7.8",
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {

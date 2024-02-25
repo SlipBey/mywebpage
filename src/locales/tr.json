@@ -49,5 +49,16 @@
   "contactPerson": "Şahsi",
 
   "Slipyme": "Slipyme",
-  "SlipymeDesign": "Slipyme Design"
+  "SlipymeDesign": "Slipyme Design",
+
+  "name": "İsminiz Soyisminiz / Firma Adı",
+  "mail": "E-Mail Adresiniz",
+  "phone": "Telefon Numaranız",
+  "subject": "Konu",
+  "message": "Mesajınız",
+  "phoneText": "Başına 0 koymayın.",
+  "submit": "Gönder",
+  "optionIstek": "İstek/Öneri",
+  "optionTeklif": "İş Teklifi",
+  "optionBildirim": "Geri Bildirim"
 }

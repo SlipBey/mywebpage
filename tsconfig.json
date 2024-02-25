@@ -19,7 +19,9 @@
       "@/components/*": ["./src/components/*"],
       "@/assets/*": ["./assets/*"],
       "@/locales/*": ["./src/locales/*"],
-      "@/libs/*": ["./src/libs/*"]
+      "@/libs/*": ["./src/libs/*"],
+      "@/models/*": ["./src/models/*"],
+      "@/services/*": ["./src/services/*"]
     },
     "incremental": true,
     "strict": false

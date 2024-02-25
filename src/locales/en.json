@@ -48,5 +48,16 @@
   "contactPerson": "Personal",
 
   "Slipyme": "Slipyme",
-  "SlipymeDesign": "Slipyme Design"
+  "SlipymeDesign": "Slipyme Design",
+
+  "name": "Name Surname / Company Name",
+  "mail": "E-Mail",
+  "phone": "Phone Number",
+  "subject": "Subject",
+  "message": "Your Message",
+  "phoneText": "Write 0 at the beginning.",
+  "submit": "Submit",
+  "optionIstek": "Request/Suggestion",
+  "optionTeklif": "Business Offer",
+  "optionBildirim": "Feedback"
 }
