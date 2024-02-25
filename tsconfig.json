@@ -27,5 +27,5 @@
     "strict": false
   },
   "exclude": [".next", "node_modules"],
-  "include": ["./**/*.ts", "./**/*.tsx", "pages/api/Youtube/statistics.js"]
+  "include": ["./**/*.ts", "./**/*.tsx"]
 }

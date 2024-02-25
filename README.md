@@ -1,4 +1,4 @@
-# Slipyme Company Webpage
+# My Personel Webpage
 
 Using [TypeScript](https://www.typescriptlang.org/), [NextJS](https://nextjs.org/) and [TailwindCSS](https://tailwindcss.com/)
 
