@@ -5,6 +5,7 @@ import design from "@/assets/works/design.svg";
 import deprem from "@/assets/works/slipymedeprem.svg";
 import todolist from "@/assets/works/todolist.svg";
 import botlist from "@/assets/works/botlist.svg";
+import marpel from "@/assets/works/marpel.svg";
 
 export const WORKS = [
   {
@@ -12,6 +13,12 @@ export const WORKS = [
     text: "Slipyme",
     alt: "Yazılım ve Tasarım sektörüne öncülük etmek amacıyla kurduğum şirketim.",
     link: "https://www.slipyme.com",
+  },
+  {
+    icon: marpel,
+    text: "Marpel Bot",
+    alt: "Türkiye'nin en iyi çok amaçlı discord botunun webmasteriyim.",
+    link: "https://www.marpel.net",
   },
   {
     icon: botlist,

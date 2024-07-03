@@ -24,7 +24,7 @@ export const PROJECTS = [
   {
     icon: marpel,
     text: "Marpel Bot",
-    alt: "Mapel isimli çok amaçlı Discord botunun eski webmasteriyim. Şuanda ise ufak tefek yardımlarda bulunuyorum.",
+    alt: "Mapel discord botunun webmasteriyim. Aynı zamanda yetkili ekibinde görev almaktayım.",
     link: "https://marpel.net",
     tags: ["Website", "Discord-Bot"],
   },

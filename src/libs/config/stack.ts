@@ -15,6 +15,9 @@ import graphql from "@/assets/libraries/graphql.svg";
 import supabase from "@/assets/libraries/supabase.svg";
 import nestjs from "@/assets/libraries/nestjs.svg";
 import postgresql from "@/assets/libraries/postgresql.svg";
+import mysql from "@/assets/libraries/mysql.svg";
+import java from "@/assets/libraries/java.svg";
+import dotnet from "@/assets/libraries/dotnet.svg";
 
 export const STACKS = [
   {
@@ -88,5 +91,17 @@ export const STACKS = [
   {
     icon: csharp,
     alt: "C#",
+  },
+  {
+    icon: java,
+    alt: "Java",
+  },
+  {
+    icon: mysql,
+    alt: "MySQL",
+  },
+  {
+    icon: dotnet,
+    alt: ".NET",
   },
 ];
