@@ -39,7 +39,7 @@ module.exports = () => {
         },
         {
           source: "/discord",
-          destination: "https://discord.gg/vvTZtRCK3X",
+          destination: "https://discord.gg/ttGpRCZZp6",
           permanent: true,
         },
         {
