@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 const STORAGE_KEY = "forumSubmit";
 
-const getLastFormSubmissionTime = () => {
+const getLastFormSubmissionTime = () => { 
   const storedTime = localStorage.getItem(STORAGE_KEY);
   return storedTime ? parseInt(storedTime, 10) : 0;
 };
