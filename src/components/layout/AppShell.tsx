@@ -1,4 +1,4 @@
-import Navbar from './Navbar/index'
+import Navbar from './Navbar'
 import { PropsWithChildren } from 'react'
 import ClientProviders from './ClientProviders'
 import Footer from './Footer'
