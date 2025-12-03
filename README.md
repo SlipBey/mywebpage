@@ -136,7 +136,9 @@ Dynamic thumbnails + view counts.
 
 ## 📸 Preview
 
-(Your screenshot here)
+<p align="center">
+  <img src="/public/screenshot.png" width="800" alt="Slipyme Website Screenshot">
+</p>
 
 ---
 
