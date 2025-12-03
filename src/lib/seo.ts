@@ -52,22 +52,22 @@ export const CONFIG = {
 }
 
 type Opt = {
-  title?: string;
-  description?: string;
-  alternates?: { canonical?: string };
-  images?: string[];
-};
+  title?: string
+  description?: string
+  alternates?: { canonical?: string }
+  images?: string[]
+}
 
 export function buildMetadata(opt: Opt = {}): Metadata {
-  const pageTitle = opt.title ?? CONFIG.SEO.title;
-  const description = opt.description ?? CONFIG.SEO.description;
+  const pageTitle = opt.title ?? CONFIG.SEO.title
+  const description = opt.description ?? CONFIG.SEO.description
   const canonical = opt.alternates?.canonical
     ? `${CONFIG.SEO.publishDomain}${opt.alternates.canonical}`
-    : CONFIG.SEO.publishDomain;
+    : CONFIG.SEO.publishDomain
 
-  const images = (opt.images?.length ? opt.images : ["/images/logo.png"]).map(
-    (url) => ({ url }),
-  );
+  const images = (opt.images?.length ? opt.images : ['/images/logo.png']).map(
+    (url) => ({ url })
+  )
 
   return {
     metadataBase: new URL(CONFIG.SEO.publishDomain),
@@ -77,23 +77,23 @@ export function buildMetadata(opt: Opt = {}): Metadata {
 
     description,
     keywords: CONFIG.SEO.keywords,
-    icons: { icon: "/images/logo.png", apple: "/apple-touch-icon.png" },
+    icons: { icon: '/images/logo.png', apple: '/apple-touch-icon.png' },
 
     openGraph: {
-      type: "website",
+      type: 'website',
       url: canonical,
       siteName: CONFIG.SEO.title,
       title: pageTitle,
       description,
       images,
-      locale: "tr_TR",
-      alternateLocale: ["en_GB", "en_US"],
+      locale: 'tr_TR',
+      alternateLocale: ['en_GB', 'en_US']
     },
     twitter: {
-      card: "summary",
+      card: 'summary',
       title: pageTitle,
       description,
-      images: images.map((i) => i.url ?? "/images/logo.png"),
-    },
-  };
+      images: images.map((i) => i.url ?? '/images/logo.png')
+    }
+  }
 }

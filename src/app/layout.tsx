@@ -6,8 +6,8 @@ import AppShell from '@/components/layout/AppShell'
 import { buildMetadata, CONFIG } from '@/lib/seo'
 import { ToasterClient } from '@/components/layout/Toaster'
 
-export const metadata: Metadata = buildMetadata();
-export const viewport = { themeColor: CONFIG.SEO.themeColor };
+export const metadata: Metadata = buildMetadata()
+export const viewport = { themeColor: CONFIG.SEO.themeColor }
 
 const ui = Plus_Jakarta_Sans({
   subsets: ['latin'],
