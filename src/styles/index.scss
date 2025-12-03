@@ -1,52 +1,140 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use './tetris.scss' as *;
 
-@import "react-toastify/dist/ReactToastify.css";
-@import "./tetris.scss";
+@reference "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+  font-family:
+    var(--font-ui),
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Ubuntu,
+    Cantarell,
+    'Noto Sans',
+    Arial,
+    sans-serif;
+  font-smooth: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html[data-scroll-behavior='smooth'] {
+  scroll-behavior: smooth;
+}
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Helvetica Neue,
-    Arial,
-    Noto Sans,
-    sans-serif,
-    Apple Color Emoji,
-    Segoe UI Emoji,
-    Segoe UI Symbol,
-    Noto Color Emoji;
-  @apply bg-white dark:bg-gray-900;
-  scroll-behavior: smooth;
+  font-size: 1rem;
+  line-height: 1.5;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.75) transparent;
+  @apply text-black dark:text-white;
 }
 
-.dark {
-  @apply bg-gray-900;
+.theme-ice {
+  --ice-bg-1: #eaf6ff;
+  --ice-bg-2: #d7efff;
+  --ice-bg-3: #c8e6ff;
+  --ice-dot: #60a5fa;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.dark.theme-ice {
+  --ice-bg-1: #0b1220;
+  --ice-bg-2: #0a1627;
+  --ice-bg-3: #081321;
+  --ice-dot: #9bd7ff;
 }
 
-* {
-  box-sizing: border-box;
+.bg-ice {
+  background:
+    radial-gradient(
+      1100px 600px at 120% -10%,
+      rgba(56, 189, 248, 0.18) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 520px at -10% 0%,
+      rgba(14, 165, 233, 0.14) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      var(--ice-bg-1) 0%,
+      var(--ice-bg-2) 50%,
+      var(--ice-bg-3) 100%
+    );
 }
 
-::-webkit-scrollbar {
-  @apply bg-transparent dark:bg-gray-900 w-2.5;
+.dark .bg-ice {
+  background:
+    radial-gradient(1200px 700px at 50% -10%, #10243a 12%, transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, #0e2338 10%, transparent 55%),
+    radial-gradient(900px 500px at -10% 20%, #0f2034 12%, transparent 55%),
+    linear-gradient(180deg, #07111f 0%, #0a1627 50%, #081321 100%);
 }
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 dark:bg-gray-700;
+
+.bg-ice-dots {
+  background-image: radial-gradient(var(--ice-dot) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.25;
 }
-::-webkit-scrollbar-thumb:hover {
-  @apply duration-200 bg-gray-500 dark:bg-gray-800 rounded-md;
+
+.bg-ice-noise {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='40' height='40' filter='url(%23n)' opacity='.03'/></svg>");
+  background-size: 160px 160px;
+  pointer-events: none;
+}
+
+.glass-ice {
+  @apply backdrop-blur-2xl rounded-2xl;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(2, 6, 23, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+    0 8px 30px -10px rgba(2, 6, 23, 0.15);
+}
+
+.dark .glass-ice {
+  background: rgba(13, 21, 38, 0.35);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 12px 40px -18px rgba(0, 0, 0, 0.65);
+}
+
+.ctrl-btn {
+  @apply rounded-xl px-3 py-2 text-sm font-medium text-white bg-white/10 hover:bg-white/20 ring-1 ring-black/10 dark:ring-white/10 transition active:scale-95;
+}
+
+.pri-btn {
+  @apply rounded-xl px-4 py-2 font-semibold text-white;
+  background: linear-gradient(180deg, #68a4a0, #4f8f8b);
+}
+
+input,
+select,
+textarea,
+button {
+  @apply outline-none disabled:cursor-not-allowed;
+}
+
+option {
+  @apply dark:bg-gray-800;
+}
+
+button:hover {
+  @apply cursor-pointer;
+}
+
+button,
+a,
+span,
+input,
+textarea,
+svg {
+  transition: all 0.3s;
 }

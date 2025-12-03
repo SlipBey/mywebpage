@@ -1,198 +1,159 @@
-import { FC, useState } from "react";
-import { Link } from "@/components/Utils/Link";
-import { FiMoon, FiSun, FiX } from "react-icons/fi";
-import { useTheme } from "next-themes";
-import classNames from "classnames";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { IconType } from "react-icons/lib";
+'use client'
 
-import icon from "@/assets/icon.svg";
-import iconLight from "@/assets/iconBeyaz.svg";
-import { useLocaleParser } from "@/libs/localeParser";
-import { FaHamburger } from "react-icons/fa";
-import { CustomImage } from "@/components/Utils/CustomImage";
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useTheme } from 'next-themes'
+import { useI18n } from '@/lib/i18n/I18nProvider'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { PAGES } from '@/lib/pages'
+import Image from 'next/image'
+import SlidingPill from './SlidingPill'
 
-import Favicon from "@/assets/icon.svg";
-import { PAGES } from "@/libs/config/pages";
+export default function Navbar() {
+  const pathname = usePathname()
+  const { theme, setTheme } = useTheme()
+  const { t, lang, setLang } = useI18n()
 
-export const Navbar: FC = () => {
-  const { theme, setTheme } = useTheme();
-  const [hash, setHash] = useState(false);
-  const router = useRouter();
-  const parser = useLocaleParser();
+  const [mounted, setMounted] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  const onTheme = () => {
-    switch (theme) {
-      case "light":
-        setTheme("dark");
-        break;
-      case "dark":
-        setTheme("light");
-        break;
-      default:
-        setTheme("dark");
-        break;
-    }
-  };
+  useEffect(() => setMounted(true), [])
 
-  const getIcon = () => {
-    let Icon: IconType;
-    switch (theme) {
-      case "dark":
-        Icon = FiMoon;
-        break;
-      case "light":
-        Icon = FiSun;
-        break;
-      default:
-        Icon = FiMoon;
-        break;
-    }
-    return <Icon className="text-bold h-full w-full p-2" />;
-  };
+  const isActive = (href: string) =>
+    pathname === href || (href !== '/' && pathname.startsWith(href))
 
-  const onClose = () => {
-    setHash(false);
-  };
+  const desktopWrapRef = useRef<HTMLDivElement | null>(null)
+  const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({})
+
+  const [activeEl, setActiveEl] = useState<HTMLAnchorElement | null>(null)
+  useEffect(() => {
+    const act = PAGES.find((p) => isActive(p.href))
+    setActiveEl(act ? (linkRefs.current[act.href] ?? null) : null)
+  }, [pathname, mounted])
 
   return (
-    <header className="sticky top-0 w-full z-10 bg-white dark:bg-gray-900">
-      <nav className="py-4 px-8 flex items-center justify-between">
-        <div className="flex items-center space-x-6">
-          <div className="flex items-center">
-            <Image
-              src={icon}
-              alt="Header Image"
-              width="50"
-              height="50"
-              className="rounded-full dark:hidden"
-            />
-            <Image
-              src={iconLight}
-              alt="Header Image"
-              width="50"
-              height="50"
-              className="hidden dark:block rounded-full"
-            />
-            <h1 className="ml-3 text-xl text-black dark:text-white font-semibold">
-              <Link href="/">
-                <span className="text-blue-600">Slip</span>
-                Bey
-              </Link>
-            </h1>
+    <header className="sticky top-4 z-50">
+      <motion.nav
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
+        className="rounded-xl px-4 sm:px-6 py-3 flex gap-3 flex-row lg:items-center justify-between shadow-[0_10px_30px_-12px_rgba(2,6,23,0.25)] bg-white/90 dark:bg-white/5 ring-1 ring-slate-900/10 dark:ring-white/10 backdrop-blur-md"
+      >
+        <Link href="/" className="flex items-center gap-2 shrink-0">
+          <div className="relative h-8 w-8">
+            {mounted && (
+              <Image
+                src={
+                  theme === 'dark' ? '/images/logo.png' : '/images/logo2.png'
+                }
+                alt="SlipBey"
+                fill
+                sizes="32px"
+                className="object-contain"
+                priority
+              />
+            )}
           </div>
-          <div>
-            <ul className="hidden lg:flex items-center space-x-4">
-              {PAGES.map((page, idx) => (
-                <li key={idx}>
-                  <Link
-                    href={page.link}
-                    className={classNames(
-                      "border-b-2 border-transparent pb-3 transition-all duration-200 font-medium",
-                      {
-                        "text-blue-600 border-blue-500":
-                          page.link === router.asPath,
-                        "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white":
-                          page.link !== router.asPath,
-                      },
-                    )}
-                  >
-                    {parser.get(page.name)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div
-          className={classNames("relative", "z-50", {
-            hidden: !hash,
-          })}
-        >
-          <div
-            onClick={onClose}
-            className="fixed inset-0 bg-white opacity-25 dark:bg-gray-600"
-          />
-          <nav className="fixed top-0 left-0 bottom-0 flex w-5/6 max-w-sm flex-col overflow-y-auto bg-gray-100 py-6 px-6 dark:bg-gray-900">
-            <div className="mb-8 flex items-center">
-              <Link href="/#">
-                <CustomImage
-                  src={Favicon}
-                  alt="Favicon"
-                  className="w-16 h-16"
-                />
-              </Link>
+          <span className="text-lg lg:text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+            <span className="text-sky-600">Slip</span>Bey
+          </span>
+        </Link>
 
-              <div className="ml-2">
-                <button
-                  aria-label="Change Theme"
-                  onClick={onTheme}
-                  className="mr-2 h-10 w-10 rounded-xl bg-blue-600 text-sm text-white hover:bg-blue-700 focus:outline-none"
-                >
-                  {getIcon()}
-                </button>
-              </div>
-              <div className="flex-grow" />
-              <button
-                aria-label="Close"
-                onClick={onClose}
-                className="focus:outline-none"
-              >
-                <FiX className="h-6 w-6 cursor-pointer text-black hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-500" />
-              </button>
-            </div>
-            <div>
-              <ul>
-                {PAGES.map((link, idx) => (
-                  <li
-                    key={idx}
-                    className="mb-1 block cursor-pointer rounded-xl p-4 text-sm font-semibold text-gray-500 hover:bg-blue-600 hover:text-white"
-                  >
-                    <Link href={link.link}>{parser.get(link.name)}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-2">
+        <div
+          ref={desktopWrapRef}
+          className="relative hidden lg:flex flex-wrap gap-2 lg:gap-3 font-semibold text-sm"
+        >
+          <SlidingPill container={desktopWrapRef.current} activeEl={activeEl} />
+
+          {PAGES.map((p, idx) => {
+            const active = isActive(p.href)
+            return (
               <Link
-                href="/contact"
-                className="cursor-pointer rounded-xl bg-blue-600 py-2 px-6 text-sm font-bold text-white hover:bg-blue-700"
+                key={idx}
+                href={p.href}
+                ref={(el) => {
+                  linkRefs.current[p.href] = el
+                }}
+                data-active={active ? 'true' : 'false'}
+                className={[
+                  'relative z-10 rounded-lg px-3 py-2 transition-colors',
+                  active
+                    ? 'text-slate-900 dark:text-white'
+                    : 'text-slate-700/90 dark:text-slate-200/90 hover:text-slate-900 dark:hover:text-white'
+                ].join(' ')}
               >
-                {parser.get("contact")}
+                {t(p.key)}
               </Link>
+            )
+          })}
+        </div>
+
+        <div className="flex items-center gap-2 lg:gap-3">
+          <button
+            onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
+            className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 ring-1 ring-slate-900/10 bg-white/80 backdrop-blur dark:text-slate-200 dark:hover:text-white dark:ring-white/10 dark:bg-white/5 transition"
+            aria-label="Dil değiştir"
+            title="Dil değiştir"
+          >
+            {lang?.toUpperCase() === 'TR' ? 'EN' : 'TR'}
+          </button>
+
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 ring-1 ring-slate-900/10 bg-white/80 backdrop-blur dark:text-slate-200 dark:hover:text-white dark:ring-white/10 dark:bg-white/5 transition"
+              aria-label="Tema değiştir"
+              title="Tema değiştir"
+            >
+              {theme === 'dark' ? '☀︎' : '🌙'}
+            </button>
+          )}
+
+          <button
+            onClick={() => setOpen((s) => !s)}
+            className="lg:hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 ring-1 ring-slate-900/10 bg-white/80 backdrop-blur dark:text-slate-200 dark:hover:text-white dark:ring-white/10 dark:bg-white/5 transition"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label="Menüyü aç/kapat"
+          >
+            {open ? '✕' : '☰'}
+          </button>
+        </div>
+      </motion.nav>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            id="mobile-nav"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="mt-2 lg:hidden overflow-hidden rounded-xl bg-white/90 dark:bg-white/5 ring-1 ring-slate-900/10 dark:ring-white/10 backdrop-blur-md"
+          >
+            <div className="flex flex-col p-2">
+              {PAGES.map((p, idx) => {
+                const active = isActive(p.href)
+                return (
+                  <Link
+                    key={idx}
+                    href={p.href}
+                    onClick={() => setOpen(false)}
+                    className={[
+                      'rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
+                      active
+                        ? 'text-slate-900 dark:text-white bg-sky-300/25 dark:bg-sky-400/15 ring-1 ring-sky-700/10 dark:ring-white/10'
+                        : 'text-slate-700/90 dark:text-slate-200/90 hover:text-slate-900 dark:hover:text-white'
+                    ].join(' ')}
+                  >
+                    {t(p.key)}
+                  </Link>
+                )
+              })}
             </div>
-          </nav>
-        </div>
-        <div className="flex items-center gap-2">
-          <div>
-            <Link
-              href="/contact"
-              className="hidden cursor-pointer rounded-xl bg-blue-600 py-2 px-6 text-sm font-bold text-white hover:bg-blue-700 lg:block"
-            >
-              {parser.get("contact")}
-            </Link>
-          </div>
-          <div className="lg:hidden">
-            <button
-              aria-label="Open/Close Navbar"
-              onClick={() => setHash(true)}
-              className="bg-gray-500 dark:bg-gray-600 text-white w-10 h-10 rounded-xl hover:opacity-80 transition-all duration-300"
-            >
-              <FaHamburger className="text-bold h-full w-full p-2" />
-            </button>
-          </div>
-          <div>
-            <button
-              aria-label="Change Theme"
-              onClick={onTheme}
-              className="mr-2 hidden h-10 w-10 rounded-xl bg-blue-600 text-sm text-white hover:bg-blue-700 focus:outline-none lg:block"
-            >
-              {getIcon()}
-            </button>
-          </div>
-        </div>
-      </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
-  );
-};
+  )
+}

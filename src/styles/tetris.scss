@@ -1,39 +1,35 @@
 .game-block {
-  @apply m-0 w-4 h-4 sm:w-5 sm:h-5 md:h-6 md:w-6 border border-gray-700 dark:border-gray-300 p-0;
-}
-
-.piece-i {
-  @apply bg-sky-500;
-}
-
-.piece-j {
-  @apply bg-blue-700;
-}
-
-.piece-l {
-  @apply bg-yellow-300;
-}
-
-.piece-o {
-  @apply bg-yellow-500;
-}
-
-.piece-s {
-  @apply bg-green-500;
-}
-
-.piece-t {
-  @apply bg-purple-800;
-}
-
-.piece-z {
-  @apply bg-red-500;
+  @apply m-[1px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-[3px]
+          ring-1 shadow-[inset_0_0_0.5px_rgba(255,255,255,0.06)]
+          bg-zinc-200/90 ring-black/10
+          dark:bg-zinc-900/60 dark:ring-white/10;
 }
 
 .piece-preview {
-  @apply bg-gray-400 dark:bg-gray-600;
+  @apply bg-zinc-100/70 dark:bg-zinc-800/50;
+}
+.piece-view {
+  @apply mt-1 mb-3;
 }
 
-.piece-view {
-  @apply mt-[4px] mb-[12px];
+.piece-i {
+  @apply bg-sky-500/90  shadow-[0_0_10px_rgba(56,189,248,0.25)]  text-transparent;
+}
+.piece-j {
+  @apply bg-blue-600/90 shadow-[0_0_10px_rgba(37,99,235,0.25)]  text-transparent;
+}
+.piece-l {
+  @apply bg-amber-400/90 shadow-[0_0_10px_rgba(251,191,36,0.25)] text-transparent;
+}
+.piece-o {
+  @apply bg-yellow-400/90 shadow-[0_0_10px_rgba(250,204,21,0.25)] text-transparent;
+}
+.piece-s {
+  @apply bg-emerald-500/90 shadow-[0_0_10px_rgba(16,185,129,0.25)] text-transparent;
+}
+.piece-t {
+  @apply bg-fuchsia-600/90 shadow-[0_0_10px_rgba(192,38,211,0.25)] text-transparent;
+}
+.piece-z {
+  @apply bg-rose-500/90 shadow-[0_0_10px_rgba(244,63,94,0.25)]  text-transparent;
 }
