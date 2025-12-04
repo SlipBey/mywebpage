@@ -116,6 +116,7 @@ export default function ContactSection() {
                         <Link
                           href={s.href}
                           target="_blank"
+                          prefetch={false}
                           rel="noopener noreferrer"
                           className="inline-grid place-items-center size-10 rounded-xl
                                      ring-1 ring-slate-900/10 dark:ring-white/10

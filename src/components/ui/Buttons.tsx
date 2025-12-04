@@ -20,7 +20,16 @@ function BaseButton({
 }: AnchorProps & { as?: 'a' | 'link'; className?: string }) {
   const common = rest as any
   if (as === 'link' && href) {
-    return <Link href={href} {...common} className={className} />
+    return (
+      <Link
+        href={href}
+        prefetch={false}
+        target="_blank"
+        rel="noreferrer"
+        {...common}
+        className={className}
+      />
+    )
   }
   return <a href={href} {...common} className={className} />
 }

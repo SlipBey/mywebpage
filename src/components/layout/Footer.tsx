@@ -61,6 +61,7 @@ export default function Footer() {
                   <Link
                     href={s.href}
                     target="_blank"
+                    prefetch={false}
                     rel="noopener noreferrer"
                     className="inline-grid place-items-center size-10 rounded-xl
                                ring-1 ring-slate-900/10 dark:ring-white/10
@@ -112,7 +113,9 @@ export default function Footer() {
               <FiHeart className=" text-red-600" /> by
               <Link
                 href="/github"
+                prefetch={false}
                 target="_blank"
+                rel="noreferrer"
                 className="text-blue-600 dark:text-blue-300"
               >
                 SlipBey.
