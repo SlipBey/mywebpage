@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/spotify',
-        destination: 'spotify:artist/5i4GTYlGDGtlNIlEjFaOUp',
+        destination: 'https://open.spotify.com/artist/5i4GTYlGDGtlNIlEjFaOUp',
         permanent: true
       },
       {

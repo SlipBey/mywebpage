@@ -31,8 +31,6 @@ export function useSpotifyReleases(limit = 8) {
           params: { limit }
         })
 
-        console.warn(data)
-
         if (!alive) return
         setItems(data?.items ?? [])
       } catch {
